@@ -19,7 +19,7 @@ productos = [
             "telefono": "3102233445",
             "correo": "ventas@provetools.com"
         },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1oTCZBR5d-SG5QAtW9gCSjvoxZo1Z99MY"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1h3QXzqDHZDH_b0WzrsqDiOMoGGCNIF_a"
     },
     {
         "nombre_producto": "Combo Sierra Circular + Lijadora Orbital",
@@ -36,7 +36,7 @@ productos = [
             "telefono": "3124567890",
             "correo": "contacto@dindustrial.com"
         },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1BdVvD9vCT0cT_1MFhS0IViHU6ESnmy1F"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1yIRRjnpYDC8cI3491wG28D63hW-3XNyJ"
     },
     {
         "nombre_producto": "Caladora Inalámbrica 20V con Maletín",
@@ -53,7 +53,7 @@ productos = [
             "telefono": "3102233445",
             "correo": "ventas@provetools.com"
         },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1yVyNx568rr_HtbpME2dM3Ps2A5wgA5j1"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1In9mqE4qp_tYh9Uy5JCDGix85XljiBnx"
     },
     {
         "nombre_producto": "Sierra de Mesa DeWalt 60V Max",
@@ -70,7 +70,7 @@ productos = [
             "telefono": "3017894455",
             "correo": "ferreteria@proservicios.com"
         },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=19HFES9IgfMxk2UWxKaKibsKMVdpKueep"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1yIRRjnpYDC8cI3491wG28D63hW-3XNyJ"
     },
     {
         "nombre_producto": "Sierra de Banco con Patas + 2 Discos",
@@ -87,7 +87,7 @@ productos = [
             "telefono": "3124567890",
             "correo": "contacto@dindustrial.com"
         },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=16bjGSSLymM9IhQ49yLf29rhpIHkA-Cq-"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=17eFwaycHcy9rWcvJyl9dA0mSmQZk2yAm"
     },
     {
         "nombre_producto": "Lavamanos con Mueble en Madera Clara",
@@ -104,7 +104,7 @@ productos = [
             "telefono": "3157778899",
             "correo": "ventas@importhogar.com"
         },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1RL2lEM_DAeq_x2HVd1R5KKhPi6m42lvR"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1wK1qaiBMwoJh9U0Ce6LqIIergqmQEZu2"
     },
     {
         "nombre_producto": "Lavamanos Flotante con Bowl Negro",
@@ -121,7 +121,7 @@ productos = [
             "telefono": "3157778899",
             "correo": "ventas@importhogar.com"
         },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1uDESXXakDCk_ZCyyAMrGfwteO69OqfXI"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1tPbjHgPJ14OmglhDGHJEQbaJScBeaQXh"
     },
     {
         "nombre_producto": "Puerta de Madera Roble Claro",
@@ -138,7 +138,7 @@ productos = [
             "telefono": "3147894562",
             "correo": "contacto@mvalle.com"
         },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1DAs17QpW1iiONXZS3z7Qtzj9qJCgYH9d"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1iaKnYIy7jPUARjPaAll3INmZ8BTv21L6"
     },
     {
         "nombre_producto": "Lavadora Automática 18kg Negra",
@@ -155,7 +155,7 @@ productos = [
             "telefono": "3124567890",
             "correo": "contacto@electrodistribuciones.com"
         },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1aGYilt9Ix7O0nyKzV2kFiQRfc84OA2i9"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1yRc8_r6WtL7_1AwDeeaTk2YJrWx2MXHE"
     },
     {
         "nombre_producto": "Lavadora Automática 18kg Negra (Vista en Perspectiva)",
@@ -172,7 +172,7 @@ productos = [
             "telefono": "3124567890",
             "correo": "contacto@electrodistribuciones.com"
         },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1K94LZNclNhqHuzgwYRO0XCrUWaE5_Vbu"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1UvNxepC2hHtKuw6u62EzcE75ybySo4k5"
     }
     {
         "nombre_producto": "Estufa Empotrable 5 Quemadores Vidrio Negro",
@@ -182,7 +182,7 @@ productos = [
         "marca": "Indurama",
         "categoria": { "nombre_categoria_producto": "Cocinas y Empotrables", "descripcion": "Cubiertas, hornos y campanas." },
         "proveedor": { "nombre_proveedor": "ElectroDistribuciones S.A.", "telefono": "3124567890", "correo": "contacto@electrodistribuciones.com" },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1PRszugOUXtHvHpG6osKaC_poZ4plglKG"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1wAFA2CYpQMIU_P-np9MttsyGIDl1YJJd	"
     },
     # 12) Parrilla mixta gas + carbón (Mr.Beef)
     {
@@ -193,7 +193,7 @@ productos = [
         "marca": "Mr.Beef",
         "categoria": { "nombre_categoria_producto": "Parrillas y Asadores", "descripcion": "Parrillas a gas, carbón y eléctricas." },
         "proveedor": { "nombre_proveedor": "Outdoor Supply S.A.S.", "telefono": "3207788899", "correo": "ventas@outdoorsupply.com" },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1f4otmIwmYQ5vye-y4mitcu4fjOs42OVc"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1Kxtv3ql_8VsS_3-1J5B59OGqwfxR44tM"
     },
     # 13) Sofá/camastro exterior madera + cojines grises
     {
@@ -204,7 +204,7 @@ productos = [
         "marca": "Home Collection",
         "categoria": { "nombre_categoria_producto": "Muebles de Exterior", "descripcion": "Sofás, camastros y poltronas para terraza." },
         "proveedor": { "nombre_proveedor": "Verde & Madera S.A.S.", "telefono": "3114567788", "correo": "contacto@verdemadera.com" },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1N5JYjnSum3rbLf2bTgtTxUrGD2bPauY1"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=13j6fzGtDnoZ16Z6LP3w4DXJwdmjoEjgP"
     },
     # 14) Comedor exterior ratán 6 puestos con vidrio
     {
@@ -215,7 +215,7 @@ productos = [
         "marca": "Home Collection",
         "categoria": { "nombre_categoriaproducto": "Muebles de Exterior", "descripcion": "Comedores de jardín y terrazas." },
         "proveedor": { "nombre_proveedor": "Verde & Madera S.A.S.", "telefono": "3114567788", "correo": "contacto@verdemadera.com" },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1IjoBnXaPFyU6FOxCQV9wVrGqyJryPW_x"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1MMfu_3fnNIAUvQY9yka1LW6OZ85cWls-"
     },
     # 15) Comedor exterior 4 puestos con sombrilla
     {
@@ -226,7 +226,7 @@ productos = [
         "marca": "Outdoor Basic",
         "categoria": { "nombre_categoria_producto": "Muebles de Exterior", "descripcion": "Conjuntos con sombrilla para jardín." },
         "proveedor": { "nombre_proveedor": "Outdoor Supply S.A.S.", "telefono": "3207788899", "correo": "ventas@outdoorsupply.com" },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1jOM6FwvSy3lbzldrbkUoytpPHiANQM1S"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1tY0NzI5wPlcAf5fEWcCiK5rKJYTCvJrO"
     },
     # 16) Sala exterior madera + cuerdas + cojines beige
     {
@@ -237,7 +237,7 @@ productos = [
         "marca": "Home Collection",
         "categoria": { "nombre_categoria_producto": "Muebles de Exterior", "descripcion": "Salas de exterior completas." },
         "proveedor": { "nombre_proveedor": "Verde & Madera S.A.S.", "telefono": "3114567788", "correo": "contacto@verdemadera.com" },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=168yu5R-f_UziUxAglL19A6uKxmGi-BkP"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=142MWGaIDk9qN5MxMbUg2m6IhCY-ajr9d"
     },
     # 17) Sala exterior metal + ratán oscuro
     {
@@ -248,7 +248,7 @@ productos = [
         "marca": "Urban Garden",
         "categoria": { "nombre_categoria_producto": "Muebles de Exterior", "descripcion": "Salas y conjuntos modulares." },
         "proveedor": { "nombre_proveedor": "Outdoor Supply S.A.S.", "telefono": "3207788899", "correo": "ventas@outdoorsupply.com" },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1_TGyoMQtiGBF4GHr6n9FSgF-4fe14xC_"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1M1V9wWrL52s7zs50YJVNbeFqJl0E5kK_"
     },
     # 18) Sala exterior ratán beige cúbica
     {
@@ -259,7 +259,7 @@ productos = [
         "marca": "Home Collection",
         "categoria": { "nombre_categoria_producto": "Muebles de Exterior", "descripcion": "Conjuntos de terraza premium." },
         "proveedor": { "nombre_proveedor": "Verde & Madera S.A.S.", "telefono": "3114567788", "correo": "contacto@verdemadera.com" },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1313m53WwZavTVe8VIgbOqZ4tC0suIPQZ"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1aW8f1qnNYKzf3Bi1OrwTlF0uRD72QPpM"
     },
     # 19) Congelador horizontal pequeño (Challenger)
     {
@@ -270,360 +270,7 @@ productos = [
         "marca": "Challenger",
         "categoria": { "nombre_categoria_producto": "Electrodomésticos", "descripcion": "Refrigeración y congelación." },
         "proveedor": { "nombre_proveedor": "ElectroDistribuciones S.A.", "telefono": "3124567890", "correo": "contacto@electrodistribuciones.com" },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1jtFdGDSFIeiu8b1oRS_QiWUpdCfLrMfn"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1G9wgBNE-SLfpNFQKh-vDxT_nc40xF0NJ"
     },
     # 20) Congelador/Refrigerador vertical (Challenger)
-    {
-        "nombre_producto": "Congelador Vertical 180 L Inox",
-        "descripcion": "Electrodoméstico vertical de bajo consumo en acero.",
-        "descripcion_larga": "Congelador vertical de 180 litros con puerta en acero inoxidable, control de temperatura y bandejas internas. Ideal para cocinas pequeñas o áreas auxiliares.",
-        "precio": 1399900,
-        "marca": "Challenger",
-        "categoria": { "nombre_categoria_producto": "Electrodomésticos", "descripcion": "Refrigeración y congelación." },
-        "proveedor": { "nombre_proveedor": "ElectroDistribuciones S.A.", "telefono": "3124567890", "correo": "contacto@electrodistribuciones.com" },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=19lgJalewSYc4ZjgIdUny5KuuvZ2unbdV"
-    },
-    {
-        "nombre": "Congelador Horizontal Industrial Vidrio Corredizo",
-        "descripcion_corta": "Congelador horizontal con tapa de vidrio corredizo, ideal para comercios.",
-        "descripcion_larga": "Congelador horizontal industrial con tapa de vidrio corredizo. Ofrece gran capacidad de almacenamiento y eficiencia energética. Ideal para negocios, tiendas y hogares que requieren conservación prolongada de alimentos congelados. Su diseño facilita la visualización del contenido sin pérdida de frío.",
-        "categoria": "Electrodomésticos",
-        "marca": "Indufrial",
-        "proveedor": "Proveedor Genérico",
-        "precio": 1299000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Lavavajillas Empotrable Acero Inoxidable",
-        "descripcion_corta": "Lavavajillas empotrable con bandejas dobles metálicas.",
-        "descripcion_larga": "Lavavajillas empotrable en acero inoxidable con dos bandejas deslizables, diseño silencioso y eficiente. Incluye sistema avanzado de lavado con múltiples ciclos, ahorro de agua y energía. Ideal para cocinas modernas que requieren practicidad y alto rendimiento.",
-        "categoria": "Electrodomésticos",
-        "marca": "Samsung",
-        "proveedor": "Proveedor Genérico",
-        "precio": 2399000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Silla de Oficina Ergonómica Respaldo Malla Negra",
-        "descripcion_corta": "Silla de oficina ergonómica con respaldo en malla y asiento acolchado.",
-        "descripcion_larga": "Silla de oficina ergonómica con respaldo en malla transpirable, asiento acolchado de alta densidad y base con ruedas de giro suave. Incluye ajuste de altura y reposabrazos fijos. Ideal para jornadas largas de trabajo gracias a su soporte lumbar natural.",
-        "categoria": "Muebles de Oficina",
-        "marca": "Genérica",
-        "proveedor": "Proveedor Genérico",
-        "precio": 229000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Silla Gamer Profesional Blanco y Negro",
-        "descripcion_corta": "Silla gamer reclinable con diseño deportivo.",
-        "descripcion_larga": "Silla gamer ergonómica con diseño deportivo en colores blanco y negro. Incluye reclinación, cojín lumbar, almohada cervical y reposapiés retráctil. Fabricada en cuero sintético de alta resistencia y base metálica. Ideal para gaming, oficina o estudio.",
-        "categoria": "Muebles de Oficina",
-        "marca": "Genérica",
-        "proveedor": "Proveedor Genérico",
-        "precio": 499000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Silla Ejecutiva Ergonómica Gris con Cabecero",
-        "descripcion_corta": "Silla ejecutiva con cabecero y respaldo en malla gris.",
-        "descripcion_larga": "Silla ejecutiva ergonómica con respaldo de malla gris, asiento acolchado, cabecero ajustable y base cromada. Ofrece soporte lumbar adecuado y excelente ventilación, ideal para ambientes laborales modernos.",
-        "categoria": "Muebles de Oficina",
-        "marca": "Genérica",
-        "proveedor": "Proveedor Genérico",
-        "precio": 389000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Silla de Oficina Gris Claro con Cabecero Blanco",
-        "descripcion_corta": "Silla de oficina moderna con cabecero blanco y respaldo en malla.",
-        "descripcion_larga": "Silla ergonómica con diseño moderno en tonos gris claro y blanco. Incluye cabecero, respaldo en malla, asiento acolchado y base cromada. Ofrece comodidad y estilo para oficinas contemporáneas.",
-        "categoria": "Muebles de Oficina",
-        "marca": "Genérica",
-        "proveedor": "Proveedor Genérico",
-        "precio": 359000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Pintura Viniltex Advanced Mate 5 Galones",
-        "descripcion_corta": "Pintura para interiores Viniltex formato 5 galones.",
-        "descripcion_larga": "Pintura Viniltex Advanced Mate de alto rendimiento ideal para paredes interiores. Ofrece excelente cubrimiento, fácil limpieza, máxima lavabilidad y alta durabilidad. Elimina hasta el 99% de bacterias y proporciona acabado mate profesional.",
-        "categoria": "Pinturas",
-        "marca": "Pintuco",
-        "proveedor": "Proveedor Genérico",
-        "precio": 239000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Pintura Topex Pro2000 5 Galones",
-        "descripcion_corta": "Pintura blanca contratista, alto poder cubriente.",
-        "descripcion_larga": "Pintura TopEx Pro2000 color blanco mate, ideal para contratistas y proyectos profesionales. Ofrece alto cubrimiento, fácil aplicación y excelente rendimiento. Formato de 5 galones, diseñada para uso interior.",
-        "categoria": "Pinturas",
-        "marca": "Topex",
-        "proveedor": "Proveedor Genérico",
-        "precio": 199900,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Pintura Viniltex Advanced Mate (Presentación Regular)",
-        "descripcion_corta": "Pintura Viniltex interior en acabado mate.",
-        "descripcion_larga": "Viniltex Advanced Mate con excelente cubrimiento, fácil lavado y durabilidad superior. Apta para paredes interiores con acabado profesional y gran rendimiento. Ideal para hogares, oficinas y remodelaciones.",
-        "categoria": "Pinturas",
-        "marca": "Pintuco",
-        "proveedor": "Proveedor Genérico",
-        "precio": 219900,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Escritorio con Repisas Laterales Madera Clara",
-        "descripcion_corta": "Escritorio funcional con repisas y superficie blanca.",
-        "descripcion_larga": "Escritorio moderno con estructura en madera clara y superficie blanca. Incluye repisas laterales para libros, decoración o almacenamiento. Ideal para estudio, oficina en casa o espacios juveniles.",
-        "categoria": "Muebles",
-        "marca": "Genérica",
-        "proveedor": "Proveedor Genérico",
-        "precio": 329000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Mueble de Cocina Modular Combo Alto y Bajo",
-        "descripcion_corta": "Juego de muebles de cocina con módulos altos y bajos en madera clara y negro.",
-        "descripcion_larga": "Conjunto modular de cocina compuesto por mueble alto con repisas abiertas, módulo superior doble y mueble inferior con lavaplatos integrado. Diseño moderno en madera clara con estructura negra. Ideal para optimizar espacios y añadir almacenamiento funcional en la cocina.",
-        "categoria": "Muebles",
-        "marca": "Genérica",
-        "proveedor": "Proveedor Genérico",
-        "precio": 1299000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Mueble de Cocina Modular en L con Gabinetes Superiores",
-        "descripcion_corta": "Juego de cocina modular en L con múltiples gabinetes y estructura robusta.",
-        "descripcion_larga": "Sistema modular de cocina con diseño en L que incluye varios gabinetes inferiores para ollas y utensilios, así como alacenas superiores con puertas y estante abierto. Su acabado en madera clara y negro aporta un estilo contemporáneo y funcional.",
-        "categoria": "Muebles",
-        "marca": "Genérica",
-        "proveedor": "Proveedor Genérico",
-        "precio": 1699000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Comedor 6 Puestos Moderno en Vidrio y Sillas Negras",
-        "descripcion_corta": "Comedor moderno de 6 puestos con mesa de vidrio y sillas acolchadas negras.",
-        "descripcion_larga": "Juego de comedor moderno compuesto por mesa rectangular con superficie de vidrio negro y seis sillas acolchadas en cuero sintético negro. Diseño elegante y minimalista que combina con interiores contemporáneos y espacios luminosos.",
-        "categoria": "Muebles",
-        "marca": "Genérica",
-        "proveedor": "Proveedor Genérico",
-        "precio": 879000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Comedor 6 Puestos con Mesa Madera Patrones Geométricos",
-        "descripcion_corta": "Comedor contemporáneo con mesa de madera y sillas tapizadas.",
-        "descripcion_larga": "Mesa rectangular en acabado de madera con patrones geométricos y seis sillas tapizadas en tonos verdes y grises. Comedor de estilo moderno con gran confort y estética sofisticada para hogares contemporáneos.",
-        "categoria": "Muebles",
-        "marca": "Genérica",
-        "proveedor": "Proveedor Genérico",
-        "precio": 1149000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Comedor 4 Puestos Mesa en Vidrio y Sillas Blancas",
-        "descripcion_corta": "Comedor compacto con mesa de vidrio y sillas blancas de diseño nórdico.",
-        "descripcion_larga": "Juego de comedor con mesa rectangular de vidrio templado y cuatro sillas blancas con patas de madera estilo escandinavo. Perfecto para espacios pequeños y decoración moderna, proporcionando elegancia y funcionalidad.",
-        "categoria": "Muebles",
-        "marca": "Genérica",
-        "proveedor": "Proveedor Genérico",
-        "precio": 599000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Lavadora Samsung Carga Frontal Gris 20 kg",
-        "descripcion_corta": "Lavadora Samsung de carga frontal color gris con panel digital.",
-        "descripcion_larga": "Lavadora de carga frontal Samsung con capacidad aproximada de 20 kg. Incluye panel digital, múltiples ciclos de lavado, diseño moderno en acero gris y alta eficiencia energética. Ideal para hogares con alto volumen de ropa.",
-        "categoria": "Electrodomésticos",
-        "marca": "Samsung",
-        "proveedor": "Proveedor Genérico",
-        "precio": 2499000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Centro de Lavado LG Torre Lavadora + Secadora",
-        "descripcion_corta": "Sistema vertical LG con lavadora y secadora integradas.",
-        "descripcion_larga": "Centro de lavado vertical de LG compuesto por una lavadora de carga frontal en la parte inferior y secadora en la parte superior. Diseño compacto, moderno y de alta eficiencia, ideal para optimizar espacio en apartamentos o áreas pequeñas.",
-        "categoria": "Electrodomésticos",
-        "marca": "LG",
-        "proveedor": "Proveedor Genérico",
-        "precio": 5899000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Centro de Lavado Whirlpool Blanco Lavadora + Secadora",
-        "descripcion_corta": "Centro de lavado Whirlpool con lavadora inferior y secadora superior.",
-        "descripcion_larga": "Centro de lavado de la marca Whirlpool en diseño blanco tradicional. Incluye lavadora de carga superior en la parte inferior y secadora frontal arriba. Es una solución eficiente y compacta para espacios reducidos.",
-        "categoria": "Electrodomésticos",
-        "marca": "Whirlpool",
-        "proveedor": "Proveedor Genérico",
-        "precio": 3799000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Televisor Samsung QLED 50'' + Barra de Sonido",
-        "descripcion_corta": "Smart TV QLED Samsung de 50 pulgadas con barra de sonido incluida.",
-        "descripcion_larga": "Televisor Samsung QLED de 50 pulgadas con control solar, resolución avanzada y colores vibrantes. Incluye barra de sonido para mejorar la experiencia audiovisual. Ideal para salas modernas y entretenimiento en casa.",
-        "categoria": "Tecnología",
-        "marca": "Samsung",
-        "proveedor": "Proveedor Genérico",
-        "precio": 2999000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-        "nombre": "Televisor Android TV 50'' Pantalla UHD",
-        "descripcion_corta": "Smart TV UHD de 50 pulgadas con sistema Google TV.",
-        "descripcion_larga": "Televisor de 50 pulgadas con sistema operativo Google TV. Incluye aplicaciones como Netflix, YouTube, Disney+, Prime Video y más. Pantalla UHD de alta definición ideal para entretenimiento y streaming.",
-        "categoria": "Tecnología",
-        "marca": "Genérica",
-        "proveedor": "Proveedor Genérico",
-        "precio": 1699000,
-        "imagen": "URL_PENDIENTE"
-    },
-    {
-      "nombre": "Escritorio en L moderno con estantería",
-      "categoria": "muebles",
-      "descripcion": "Escritorio en L con combinación de colores negro y madera natural, incluye estantería lateral con compartimientos y puerta abatible.",
-      "precio": 599000,
-      "stock": 10,
-      "imagen": "LINK_29",
-      "caracteristicas": [
-        "Material: Madera MDF",
-        "Color: Negro y roble",
-        "Incluye estantes laterales",
-        "Diseño moderno en L"
-      ]
-    },
-    {
-      "nombre": "Escritorio de vidrio con estructura metálica",
-      "categoria": "muebles",
-      "descripcion": "Escritorio con estructura metálica cromada y superficie de vidrio templado, ideal para espacios modernos y oficinas en casa.",
-      "precio": 499000,
-      "stock": 15,
-      "imagen": "LINK_30",
-      "caracteristicas": [
-        "Superficie de vidrio templado",
-        "Estructura metálica",
-        "Diseño moderno",
-        "Fácil de limpiar"
-      ]
-    },
-    {
-      "nombre": "Escritorio blanco con biblioteca integrada",
-      "categoria": "muebles",
-      "descripcion": "Escritorio compacto color blanco con biblioteca lateral de 4 niveles y espacio para computador.",
-      "precio": 579000,
-      "stock": 18,
-      "imagen": "LINK_31",
-      "caracteristicas": [
-        "Material: MDP laminado",
-        "Color blanco",
-        "Incluye biblioteca lateral",
-        "Amplio espacio para PC"
-      ]
-    },
-    {
-      "nombre": "Biblioteca alta 5 niveles color madera",
-      "categoria": "muebles",
-      "descripcion": "Biblioteca alta en acabado madera con cinco niveles de almacenamiento ideal para libros y decoración.",
-      "precio": 329000,
-      "stock": 20,
-      "imagen": "LINK_32",
-      "caracteristicas": [
-        "5 niveles de almacenamiento",
-        "Acabado color madera",
-        "Diseño moderno",
-        "Material MDP resistente"
-      ]
-    },
-    {
-      "nombre": "Estantería cuadrada blanca 9 compartimentos",
-      "categoria": "muebles",
-      "descripcion": "Estantería modular de nueve compartimientos en acabado blanco ideal para organización y decoración.",
-      "precio": 259000,
-      "stock": 25,
-      "imagen": "LINK_33",
-      "caracteristicas": [
-        "9 compartimientos",
-        "Color blanco",
-        "Ideal para organización",
-        "Material MDF"
-      ]
-    },
-    {
-      "nombre": "Biblioteca decorativa blanca",
-      "categoria": "muebles",
-      "descripcion": "Estantería decorativa blanca de diseño minimalista, perfecta para salas, oficinas o estudios.",
-      "precio": 349000,
-      "stock": 12,
-      "imagen": "LINK_34",
-      "caracteristicas": [
-        "Diseño minimalista",
-        "Material MDF",
-        "6 compartimientos",
-        "Color blanco mate"
-      ]
-    },
-    {
-      "nombre": "Estantería 9 cubos con canastas organizadoras",
-      "categoria": "muebles",
-      "descripcion": "Biblioteca de nueve cubos en color blanco, incluye canastas grises para mejorar el almacenamiento.",
-      "precio": 289000,
-      "stock": 14,
-      "imagen": "LINK_35",
-      "caracteristicas": [
-        "Incluye 4 canastas organizadoras",
-        "Color blanco con gris",
-        "Material MDF",
-        "Ideal para dormitorios u oficinas"
-      ]
-    },
-    {
-      "nombre": "Mueble inferior de cocina 5 puertas 1 cajón",
-      "categoria": "muebles",
-      "descripcion": "Mueble inferior de cocina con 5 puertas, 1 cajón y espacio para fregadero y estufa.",
-      "precio": 659000,
-      "stock": 10,
-      "imagen": "LINK_36",
-      "caracteristicas": [
-        "Material MDP 15 mm",
-        "5 puertas y 1 cajón",
-        "Color blanco y madera",
-        "Patas metálicas"
-      ]
-    },
-    {
-      "nombre": "Cocina modular en L color madera",
-      "categoria": "muebles",
-      "descripcion": "Cocina modular completa en forma de L, incluye gabinetes superiores e inferiores en acabado madera.",
-      "precio": 1399000,
-      "stock": 5,
-      "imagen": "LINK_37",
-      "caracteristicas": [
-        "Diseño en L",
-        "Muebles superiores e inferiores",
-        "Acabado madera",
-        "Amplio espacio de almacenamiento"
-      ]
-    },
-    {
-      "nombre": "Cocina integral moderna beige y madera",
-      "categoria": "muebles",
-      "descripcion": "Cocina integral moderna con mueble superior beige y mueble inferior en madera con superficie de acero.",
-      "precio": 1199000,
-      "stock": 8,
-      "imagen": "LINK_38",
-      "caracteristicas": [
-        "Incluye gabinete superior",
-        "Cubierta en acero",
-        "Color beige y madera",
-        "Espacio para lavaplatos y estufa"
-      ]
-    }
 ]
-
-db.producto.insert_many(productos)
-print("Productos insertados correctamente.")
