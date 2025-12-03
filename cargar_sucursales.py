@@ -6,9 +6,6 @@ Database_name = "homecenter"
 client = MongoClient(uri)
 db = client[Database_name]
 
-# Colección
-sucursal = db["sucursal"]
-
 # Lista de registros
 data = [
     {
@@ -287,5 +284,5 @@ data = [
 ]
 
 # Inserción masiva
-result = sucursal.insert_many(data)
+result = db.sucursal.insert_many(data)
 print("Registros insertados:", len(result.inserted_ids))
