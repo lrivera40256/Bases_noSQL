@@ -273,4 +273,531 @@ productos = [
         "imagen_principal": "https://drive.google.com/uc?export=download&id=1G9wgBNE-SLfpNFQKh-vDxT_nc40xF0NJ"
     },
     # 20) Congelador/Refrigerador vertical (Challenger)
+    {
+        "nombre_producto": "Nevera Vertical 235 Lts Inoxidable",
+        "descripcion": "Refrigerador compacto con puerta reversible y congelador superior.",
+        "descripcion_larga": "Nevera vertical de 235 litros marca Challenger con diseño en acero inoxidable, bandejas ajustables y bajo consumo energético. Ideal para espacios pequeños u oficinas.",
+        "precio": 1299900,
+        "marca": "Challenger",
+        "categoria": {
+            "nombre_categoria_producto": "Electrodomésticos",
+            "descripcion": "Refrigeración y conservación de alimentos."
+        },
+        "proveedor": {
+            "nombre_proveedor": "ElectroDistribuciones S.A.",
+            "telefono": "3124567890",
+            "correo": "contacto@electrodistribuciones.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Congelador Horizontal 400 L Blanco",
+        "descripcion": "Freezer industrial de gran capacidad con control frontal de temperatura.",
+        "descripcion_larga": "Congelador horizontal de 400 litros con sistema de drenaje, ruedas para fácil desplazamiento y tapa abatible. Perfecto para uso comercial o doméstico intensivo.",
+        "precio": 1899900,
+        "marca": "Indufrial",
+        "categoria": {
+            "nombre_categoria_producto": "Electrodomésticos",
+            "descripcion": "Congeladores y refrigeradores horizontales."
+        },
+        "proveedor": {
+            "nombre_proveedor": "FrioSolutions Ltda.",
+            "telefono": "3109876543",
+            "correo": "ventas@friosolutions.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Lavavajillas Empotrable 12 Puestos Acero Inoxidable",
+        "descripcion": "Lavavajillas automático de acero inoxidable con dos bandejas y controles digitales.",
+        "descripcion_larga": "Lavavajillas empotrable de 12 puestos con sensores de carga, modo ecológico y motor silencioso. Fabricado por Samsung para un lavado eficiente y moderno.",
+        "precio": 2699900,
+        "marca": "Samsung",
+        "categoria": {
+            "nombre_categoria_producto": "Electrodomésticos",
+            "descripcion": "Limpieza automática de utensilios de cocina."
+        },
+        "proveedor": {
+            "nombre_proveedor": "ElectroDistribuciones S.A.",
+            "telefono": "3124567890",
+            "correo": "contacto@electrodistribuciones.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Silla Oficina Ergonómica Respaldo Malla Negra",
+        "descripcion": "Silla giratoria de oficina con soporte lumbar y ajuste de altura.",
+        "descripcion_larga": "Silla ergonómica con base metálica de cinco ruedas, respaldo en malla transpirable y sistema hidráulico de elevación. Ideal para jornadas largas de trabajo.",
+        "precio": 349900,
+        "marca": "HomeOffice",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Oficina",
+            "descripcion": "Sillas, escritorios y mobiliario ergonómico."
+        },
+        "proveedor": {
+            "nombre_proveedor": "MueblesExpress S.A.S.",
+            "telefono": "3145678901",
+            "correo": "contacto@mueblesexpress.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Silla Gamer Recline Pro Blanco y Negro",
+        "descripcion": "Silla gamer reclinable con cojines ergonómicos y reposapiés extensible.",
+        "descripcion_larga": "Silla gamer de diseño deportivo en cuero sintético bicolor, soporte de cuello y espalda, estructura de acero y ruedas silenciosas. Reclinable hasta 170 grados.",
+        "precio": 699900,
+        "marca": "Cougar",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles",
+            "descripcion": "Sillas de juego y descanso ergonómicas."
+        },
+        "proveedor": {
+            "nombre_proveedor": "GamerStore S.A.S.",
+            "telefono": "3161234567",
+            "correo": "ventas@gamerstore.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Silla Ejecutiva Alta con Cabecero Gris",
+        "descripcion": "Silla ejecutiva de diseño moderno con soporte cervical y base cromada.",
+        "descripcion_larga": "Silla ejecutiva con estructura en acero, malla respirable, reposacabezas y apoyabrazos ajustables. Ideal para oficinas modernas o espacios ejecutivos.",
+        "precio": 599900,
+        "marca": "HomeOffice",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Oficina",
+            "descripcion": "Sillas y mobiliario profesional de oficina."
+        },
+        "proveedor": {
+            "nombre_proveedor": "MueblesExpress S.A.S.",
+            "telefono": "3145678901",
+            "correo": "contacto@mueblesexpress.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Silla Ejecutiva Blanca con Cabecero",
+        "descripcion": "Silla ergonómica con soporte lumbar y diseño elegante en color blanco.",
+        "descripcion_larga": "Silla de oficina blanca con respaldo de malla y base metálica cromada. Cuenta con ajuste de altura, soporte de cabeza y ruedas silenciosas.",
+        "precio": 629900,
+        "marca": "HomeOffice",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Oficina",
+            "descripcion": "Mobiliario ergonómico para trabajo prolongado."
+        },
+        "proveedor": {
+            "nombre_proveedor": "MueblesExpress S.A.S.",
+            "telefono": "3145678901",
+            "correo": "contacto@mueblesexpress.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Pintura Viniltex Advanced Mate 5 Galones",
+        "descripcion": "Pintura lavable de alta durabilidad para interiores.",
+        "descripcion_larga": "Pintura Viniltex Advanced Mate de 5 galones con tecnología antibacteriana, excelente cubrimiento y fácil limpieza. Color blanco para paredes interiores.",
+        "precio": 229900,
+        "marca": "Pintuco",
+        "categoria": {
+            "nombre_categoria_producto": "Pinturas",
+            "descripcion": "Recubrimientos para paredes interiores y exteriores."
+        },
+        "proveedor": {
+            "nombre_proveedor": "ColorPaint S.A.",
+            "telefono": "3187654321",
+            "correo": "ventas@colorpaint.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Pintura TopEx Pro 2000 Blanco 5 Galones",
+        "descripcion": "Pintura contratista de alto poder cubriente para interiores.",
+        "descripcion_larga": "Pintura TopEx Pro 2000 blanca en presentación de 5 galones, con acabado mate y fácil limpieza. Ideal para proyectos residenciales y comerciales.",
+        "precio": 199900,
+        "marca": "TopEx",
+        "categoria": {
+            "nombre_categoria_producto": "Pinturas",
+            "descripcion": "Productos de acabado para paredes y techos."
+        },
+        "proveedor": {
+            "nombre_proveedor": "ColorPaint S.A.",
+            "telefono": "3187654321",
+            "correo": "ventas@colorpaint.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Pintura Viniltex Advanced Mate 1 Galón",
+        "descripcion": "Pintura lavable de acabado mate para interiores.",
+        "descripcion_larga": "Pintura Viniltex Advanced Mate de 1 galón con fórmula antibacteriana, color blanco y excelente rendimiento. Ideal para renovar espacios interiores.",
+        "precio": 69900,
+        "marca": "Pintuco",
+        "categoria": {
+            "nombre_categoria_producto": "Pinturas",
+            "descripcion": "Recubrimientos para uso decorativo interior."
+        },
+        "proveedor": {
+            "nombre_proveedor": "ColorPaint S.A.",
+            "telefono": "3187654321",
+            "correo": "ventas@colorpaint.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Escritorio con Estantería Lateral Roble y Blanco",
+        "descripcion": "Escritorio moderno con repisas laterales integradas para almacenamiento.",
+        "descripcion_larga": "Escritorio fabricado en madera aglomerada con acabado en roble claro y superficie blanca. Incluye tres repisas laterales ideales para libros, documentos o decoración. Diseño funcional y compacto para espacios de estudio u oficina.",
+        "precio": 449900,
+        "marca": "RTA Design",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Oficina",
+            "descripcion": "Escritorios, estanterías y mobiliario funcional para el hogar y oficina."
+        },
+        "proveedor": {
+            "nombre_proveedor": "MueblesExpress S.A.S.",
+            "telefono": "3145678901",
+            "correo": "contacto@mueblesexpress.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Escritorio en L con Estantería Lateral Negro y Roble",
+        "descripcion": "Escritorio en L con compartimientos y puerta lateral.",
+        "descripcion_larga": "Escritorio multifuncional en forma de L fabricado en melamina color negro y roble claro. Cuenta con compartimientos laterales, una puerta abatible y amplio espacio para computador o estudio.",
+        "precio": 549900,
+        "marca": "RTA Design",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Oficina",
+            "descripcion": "Escritorios, mesas de trabajo y mobiliario funcional."
+        },
+        "proveedor": {
+            "nombre_proveedor": "MueblesExpress S.A.S.",
+            "telefono": "3145678901",
+            "correo": "contacto@mueblesexpress.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Escritorio Metálico con Superficie de Vidrio",
+        "descripcion": "Escritorio moderno de vidrio templado y estructura metálica.",
+        "descripcion_larga": "Escritorio con diseño minimalista de estructura cromada en acero y superficie de vidrio templado. Ideal para espacios modernos, combina durabilidad y elegancia en una sola pieza.",
+        "precio": 619900,
+        "marca": "UrbanWork",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Oficina",
+            "descripcion": "Muebles metálicos modernos y funcionales para oficina."
+        },
+        "proveedor": {
+            "nombre_proveedor": "MueblesExpress S.A.S.",
+            "telefono": "3145678901",
+            "correo": "contacto@mueblesexpress.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Centro de Computo Modular Blanco con Biblioteca",
+        "descripcion": "Escritorio con torre lateral para CPU y biblioteca incorporada.",
+        "descripcion_larga": "Centro de cómputo fabricado en melamina blanca, con espacio para CPU, teclado deslizable y repisas verticales. Incluye biblioteca lateral con tres niveles.",
+        "precio": 699900,
+        "marca": "RTA Design",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Oficina",
+            "descripcion": "Muebles funcionales para equipos de cómputo."
+        },
+        "proveedor": {
+            "nombre_proveedor": "MueblesExpress S.A.S.",
+            "telefono": "3145678901",
+            "correo": "contacto@mueblesexpress.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Biblioteca Alta 5 Niveles Color Nogal",
+        "descripcion": "Biblioteca vertical de cinco niveles en acabado nogal.",
+        "descripcion_larga": "Biblioteca de diseño clásico con cinco niveles amplios para libros, decoraciones o archivos. Fabricada en aglomerado de madera con acabado en color nogal natural.",
+        "precio": 369900,
+        "marca": "RTA Design",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles",
+            "descripcion": "Estanterías y bibliotecas para el hogar u oficina."
+        },
+        "proveedor": {
+            "nombre_proveedor": "MueblesExpress S.A.S.",
+            "telefono": "3145678901",
+            "correo": "contacto@mueblesexpress.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Organizador Modular 6 Cubos Blanco",
+        "descripcion": "Estantería modular con seis compartimientos abiertos.",
+        "descripcion_larga": "Estante de seis cubos fabricado en melamina blanca de alta resistencia. Ideal para organización de libros, objetos decorativos o almacenamiento de oficina.",
+        "precio": 289900,
+        "marca": "HomeStyle",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Hogar",
+            "descripcion": "Organizadores y estanterías modulares."
+        },
+        "proveedor": {
+            "nombre_proveedor": "DecoHome S.A.S.",
+            "telefono": "3157892345",
+            "correo": "info@decohome.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Estantería Baja 6 Cubos Blanco Mate",
+        "descripcion": "Estantería horizontal moderna para sala o estudio.",
+        "descripcion_larga": "Estante de seis compartimientos horizontales con acabado blanco mate. Perfecta para exhibir libros, cajas organizadoras o decoración minimalista.",
+        "precio": 319900,
+        "marca": "HomeStyle",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Hogar",
+            "descripcion": "Estanterías y muebles decorativos modernos."
+        },
+        "proveedor": {
+            "nombre_proveedor": "DecoHome S.A.S.",
+            "telefono": "3157892345",
+            "correo": "info@decohome.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Estantería 8 Cubos con Cajas Textiles Grises",
+        "descripcion": "Organizador alto con compartimientos y cajas extraíbles.",
+        "descripcion_larga": "Estantería vertical con ocho cubos y cajas de tela gris incluidas. Fabricada en melamina blanca resistente, ideal para espacios de trabajo o dormitorios.",
+        "precio": 399900,
+        "marca": "HomeStyle",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Hogar",
+            "descripcion": "Organizadores con compartimientos y cajones textiles."
+        },
+        "proveedor": {
+            "nombre_proveedor": "DecoHome S.A.S.",
+            "telefono": "3157892345",
+            "correo": "info@decohome.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Cocina Integral 5 Puertas 1 Cajón Roble y Blanco",
+        "descripcion": "Cocina integral compacta con cubierta y lavaplatos incluidos.",
+        "descripcion_larga": "Cocina integral de 5 puertas y 1 cajón fabricada en MDP de 15 mm con acabado en roble y blanco. Incluye lavaplatos doble y espacio para estufa o microondas.",
+        "precio": 1449900,
+        "marca": "RTA Kitchen",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Cocina",
+            "descripcion": "Cocinas integrales y modulares listas para instalar."
+        },
+        "proveedor": {
+            "nombre_proveedor": "CocinaFácil S.A.S.",
+            "telefono": "3134567890",
+            "correo": "ventas@cocinafacil.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Cocina Modular en L 7 Puertas Roble y Blanco",
+        "descripcion": "Cocina modular con barra lateral y amplio espacio de almacenamiento.",
+        "descripcion_larga": "Cocina integral en forma de L con 7 puertas y 2 cajones, superficie de melamina resistente al calor y módulos superiores abiertos. Ideal para hogares modernos.",
+        "precio": 2399900,
+        "marca": "RTA Kitchen",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Cocina",
+            "descripcion": "Módulos de cocina modernos con acabados resistentes."
+        },
+        "proveedor": {
+            "nombre_proveedor": "CocinaFácil S.A.S.",
+            "telefono": "3134567890",
+            "correo": "ventas@cocinafacil.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Cocina Integral 4 Puertas Madera Natural y Beige",
+        "descripcion": "Cocina compacta moderna con acabado natural y beige.",
+        "descripcion_larga": "Cocina integral de 4 puertas con superficie de acero inoxidable y estufa empotrada. Acabado en madera natural y beige, diseño elegante y funcional.",
+        "precio": 1899900,
+        "marca": "RTA Kitchen",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Cocina",
+            "descripcion": "Cocinas integrales con superficie metálica y diseño moderno."
+        },
+        "proveedor": {
+            "nombre_proveedor": "CocinaFácil S.A.S.",
+            "telefono": "3134567890",
+            "correo": "ventas@cocinafacil.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Cocina Integral Moderna Roble Claro y Negro",
+        "descripcion": "Cocina integral compacta con acabados en roble claro y estructura negra.",
+        "descripcion_larga": "Cocina integral contemporánea con módulos superiores e inferiores, fabricada en melamina de alta resistencia. Combina tonos de roble natural con estructura negra, aportando un estilo elegante y funcional.",
+        "precio": 1899900,
+        "marca": "RTA Kitchen",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Cocina",
+            "descripcion": "Cocinas integrales modernas con módulos y espacio para electrodomésticos."
+        },
+        "proveedor": {
+            "nombre_proveedor": "CocinaFácil S.A.S.",
+            "telefono": "3134567890",
+            "correo": "ventas@cocinafacil.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Cocina en L Moderna Roble Claro y Grafito",
+        "descripcion": "Cocina modular en L con amplios compartimientos y diseño elegante.",
+        "descripcion_larga": "Cocina integral modular en forma de L, con módulos superiores e inferiores, puertas en tono roble claro y estructura color grafito. Ideal para espacios amplios y modernos.",
+        "precio": 2599900,
+        "marca": "RTA Kitchen",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Cocina",
+            "descripcion": "Cocinas integrales modulares con acabado de madera."
+        },
+        "proveedor": {
+            "nombre_proveedor": "CocinaFácil S.A.S.",
+            "telefono": "3134567890",
+            "correo": "ventas@cocinafacil.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Comedor 6 Puestos Negro con Sillas Acolchadas",
+        "descripcion": "Comedor rectangular de 6 puestos con estructura metálica y sillas tapizadas.",
+        "descripcion_larga": "Mesa de comedor negra con tablero de vidrio templado y estructura metálica. Incluye seis sillas tapizadas en cuero sintético negro, ofreciendo elegancia y confort en el comedor.",
+        "precio": 1299900,
+        "marca": "DecoHome",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Comedor",
+            "descripcion": "Comedores modernos con estructura metálica y sillas acolchadas."
+        },
+        "proveedor": {
+            "nombre_proveedor": "DecoHome S.A.S.",
+            "telefono": "3157892345",
+            "correo": "info@decohome.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Comedor 6 Puestos Estilo Escandinavo",
+        "descripcion": "Mesa de madera con diseño geométrico y sillas tapizadas en tela.",
+        "descripcion_larga": "Comedor de seis puestos con mesa de superficie de madera con patrón geométrico y patas de acero. Incluye seis sillas tapizadas en tonos gris y verde con respaldo curvo para mayor comodidad.",
+        "precio": 1549900,
+        "marca": "NordicLiving",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Comedor",
+            "descripcion": "Comedores de diseño escandinavo con materiales cálidos y modernos."
+        },
+        "proveedor": {
+            "nombre_proveedor": "NordicLiving Ltda.",
+            "telefono": "3166549870",
+            "correo": "contacto@nordicliving.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Comedor 4 Puestos Vidrio y Madera Natural",
+        "descripcion": "Mesa cuadrada de vidrio templado con patas de madera y sillas blancas.",
+        "descripcion_larga": "Comedor de cuatro puestos con superficie de vidrio templado y patas de madera natural. Incluye cuatro sillas blancas de estilo nórdico, ideal para espacios pequeños y modernos.",
+        "precio": 899900,
+        "marca": "HomeStyle",
+        "categoria": {
+            "nombre_categoria_producto": "Muebles de Comedor",
+            "descripcion": "Mesas y sillas modernas de vidrio y madera natural."
+        },
+        "proveedor": {
+            "nombre_proveedor": "DecoHome S.A.S.",
+            "telefono": "3157892345",
+            "correo": "info@decohome.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Lavadora Samsung Carga Frontal 22Kg Gris",
+        "descripcion": "Lavadora Samsung con panel digital y sistema de lavado inteligente.",
+        "descripcion_larga": "Lavadora automática de carga frontal Samsung con capacidad de 22 kg. Cuenta con motor Digital Inverter, múltiples programas de lavado y diseño moderno en color gris metálico.",
+        "precio": 3299900,
+        "marca": "Samsung",
+        "categoria": {
+            "nombre_categoria_producto": "Electrodomésticos",
+            "descripcion": "Lavadoras automáticas de carga frontal."
+        },
+        "proveedor": {
+            "nombre_proveedor": "ElectroGlobal S.A.",
+            "telefono": "3109876543",
+            "correo": "ventas@electroglobal.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Lavadora Secadora LG WashTower Negra",
+        "descripcion": "Centro de lavado LG con lavadora y secadora integradas en torre.",
+        "descripcion_larga": "Sistema de lavado LG WashTower con capacidad combinada de 22 kg. Diseño vertical con lavadora y secadora independientes, panel de control central y conectividad ThinQ para control remoto.",
+        "precio": 5899900,
+        "marca": "LG",
+        "categoria": {
+            "nombre_categoria_producto": "Electrodomésticos",
+            "descripcion": "Centros de lavado integrados con tecnología inteligente."
+        },
+        "proveedor": {
+            "nombre_proveedor": "ElectroGlobal S.A.",
+            "telefono": "3109876543",
+            "correo": "ventas@electroglobal.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Centro de Lavado Whirlpool Blanco 17Kg",
+        "descripcion": "Centro de lavado con lavadora y secadora de carga superior.",
+        "descripcion_larga": "Centro de lavado Whirlpool en color blanco con capacidad total de 17 kg. Incluye lavadora de carga superior y secadora eléctrica, ideal para espacios compactos.",
+        "precio": 3899900,
+        "marca": "Whirlpool",
+        "categoria": {
+            "nombre_categoria_producto": "Electrodomésticos",
+            "descripcion": "Centros de lavado apilados y compactos para el hogar."
+        },
+        "proveedor": {
+            "nombre_proveedor": "ElectroGlobal S.A.",
+            "telefono": "3109876543",
+            "correo": "ventas@electroglobal.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Televisor Samsung 50'' QLED 4K con Barra de Sonido",
+        "descripcion": "Smart TV QLED 50 pulgadas con barra de sonido incluida.",
+        "descripcion_larga": "Televisor Samsung QLED 4K de 50 pulgadas con tecnología Quantum HDR, control remoto solar y barra de sonido Bluetooth. Ideal para experiencias cinematográficas en casa.",
+        "precio": 3199900,
+        "marca": "Samsung",
+        "categoria": {
+            "nombre_categoria_producto": "Electrodomésticos",
+            "descripcion": "Televisores inteligentes con barra de sonido."
+        },
+        "proveedor": {
+            "nombre_proveedor": "ElectroGlobal S.A.",
+            "telefono": "3109876543",
+            "correo": "ventas@electroglobal.com"
+        },
+        "imagen_principal": ""
+    },
+    {
+        "nombre_producto": "Televisor Smart TV Sony 55'' 4K Google TV",
+        "descripcion": "Televisor inteligente Sony 4K con sistema operativo Google TV.",
+        "descripcion_larga": "Smart TV Sony 55 pulgadas con resolución 4K UHD, HDR10, compatibilidad con Google Assistant y Chromecast integrado. Experiencia fluida y acceso directo a Netflix, Disney+ y YouTube.",
+        "precio": 3599900,
+        "marca": "Sony",
+        "categoria": {
+            "nombre_categoria_producto": "Electrodomésticos",
+            "descripcion": "Televisores inteligentes con sistema Google TV."
+        },
+        "proveedor": {
+            "nombre_proveedor": "ElectroGlobal S.A.",
+            "telefono": "3109876543",
+            "correo": "ventas@electroglobal.com"
+        },
+        "imagen_principal": ""
+    }
 ]
