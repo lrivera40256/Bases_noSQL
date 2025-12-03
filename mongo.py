@@ -84,7 +84,6 @@ try:
                 "correo": {"bsonType": "string"},
                 "cargo": {"bsonType": "string"},
                 "id_area": {"bsonType": "objectId"},
-                "perfil_laboral": {"bsonType": "string"}
             }
         }
     })
@@ -105,7 +104,6 @@ try:
                 "precio": {"bsonType": "double"},
                 "marca": {"bsonType": "string"},
 
-                # Categoría embebida como lo pidió el profesor
                 "categoria": {
                     "bsonType": "object",
                     "required": ["nombre_categoria_producto"],
@@ -153,7 +151,6 @@ try:
                 "id_sucursal": {"bsonType": "objectId"},
                 "fecha": {"bsonType": "date"},
 
-                # Comentarios útiles para embeddings
                 "comentarios_cliente": {"bsonType": "string"},
 
                 "productosxcompra": {
@@ -202,32 +199,46 @@ try:
         }
     })
 
-    # === NUEVA COLECCIÓN: EMBEDDINGS ===
-    db.create_collection("embeddings", validator={
+    db.create_collection("embeddings_imagen", validator={
         "$jsonSchema": {
             "bsonType": "object",
-            "required": ["origen", "id_origen"],
+            "required": ["producto_id", "imagen_url", "embedding_imagen"],
             "properties": {
-                "origen": {"bsonType": "string"},
-                "id_origen": {"bsonType": "objectId"},
 
-                "texto": {"bsonType": "string"},
-                "embedding_texto": {
-                    "bsonType": "array",
-                    "items": {"bsonType": "double"}
-                },
+                "producto_id": { "bsonType": "objectId" },    # referencia a producto
+                "imagen_url": { "bsonType": "string" },
 
-                "imagen_url": {"bsonType": "string"},
                 "embedding_imagen": {
                     "bsonType": "array",
-                    "items": {"bsonType": "double"}
+                    "items": { "bsonType": "double" }
                 },
-                "metadata": {
-                    "bsonType": "object"
-                }
+
+                "metadata": { "bsonType": "object" }
             }
         }
     })
+
+    db.create_collection("embeddings_texto", validator={
+        "$jsonSchema": {
+            "bsonType": "object",
+            "required": ["origen", "id_origen", "campo", "texto", "embedding_texto"],
+            "properties": {
+
+                "origen": { "bsonType": "string" },          # ejemplo: 'producto', 'cliente', 'sucursal'
+                "id_origen": { "bsonType": "objectId" },     # referencia al documento original
+                "campo": { "bsonType": "string" },           # ejemplo: 'descripcion', 'direccion', 'descripcion_larga'
+                "texto": { "bsonType": "string" },
+
+                "embedding_texto": {
+                    "bsonType": "array",
+                    "items": { "bsonType": "double" }
+                },
+
+                "metadata": { "bsonType": "object" }
+            }
+        }
+    })
+
 
     print("✔ TODAS LAS COLECCIONES CON VALIDADORES RAG LISTAS.")
 
