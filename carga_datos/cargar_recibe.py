@@ -9,10 +9,6 @@ Database_name = "homecenter"
 client = MongoClient(uri)
 db = client[Database_name]
 
-# =============================
-# 1. Obtener IDs reales
-# =============================
-
 productos = list(db.producto.find({}, {"_id": 1}))
 sucursales = list(db.sucursal.find({}, {"_id": 1}))
 
@@ -26,10 +22,6 @@ if not sucursales:
 
 print(f"✔ Productos encontrados: {len(productos)}")
 print(f"✔ Sucursales encontradas: {len(sucursales)}")
-
-# =============================
-# 2. Generar 60 registros Recibe
-# =============================
 
 def fecha_aleatoria():
     """Genera fechas dentro de los últimos 2 años."""
@@ -46,12 +38,8 @@ for _ in range(60):
         "id_producto": prod["_id"],
         "id_sucursal": suc["_id"],
         "fecha": fecha_aleatoria(),
-        "cantidad": random.randint(1, 500)  # Cantidad recibida
+        "cantidad": random.randint(1, 500)
     })
-
-# =============================
-# 3. Insertar en la colección
-# =============================
 
 resultado = db.recibe.insert_many(registros)
 print(f"✔ Se insertaron {len(resultado.inserted_ids)} registros en 'recibe'.")

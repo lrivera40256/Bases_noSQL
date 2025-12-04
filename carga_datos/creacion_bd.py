@@ -12,12 +12,7 @@ for col in db.list_collection_names():
     db[col].drop()
 print("✔ Base limpia.\n")
 
-# ==========================================
-# VALIDADORES RAG-READY
-# ==========================================
-
 try:
-    # === CLIENTE ===
     db.create_collection("cliente", validator={
         "$jsonSchema": {
             "bsonType": "object",
@@ -32,7 +27,6 @@ try:
         }
     })
 
-    # === SUCURSAL ===
     db.create_collection("sucursal", validator={
         "$jsonSchema": {
             "bsonType": "object",
@@ -59,7 +53,6 @@ try:
         }
     })
 
-    # === AREA ===
     db.create_collection("area", validator={
         "$jsonSchema": {
             "bsonType": "object",
@@ -71,7 +64,6 @@ try:
         }
     })
 
-    # === EMPLEADO ===
     db.create_collection("empleado", validator={
         "$jsonSchema": {
             "bsonType": "object",
@@ -88,7 +80,6 @@ try:
         }
     })
 
-    # === PRODUCTO (RAG READY) ===
     db.create_collection("producto", validator={
         "$jsonSchema": {
             "bsonType": "object",
@@ -127,7 +118,6 @@ try:
         }
     })
 
-    # === RECIBE ===
     db.create_collection("recibe", validator={
         "$jsonSchema": {
             "bsonType": "object",
@@ -141,7 +131,6 @@ try:
         }
     })
 
-    # === COMPRA ===
     db.create_collection("compra", validator={
         "$jsonSchema": {
             "bsonType": "object",

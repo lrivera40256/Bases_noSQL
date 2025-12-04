@@ -31,23 +31,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Servir archivos estáticos desde ./static bajo /static
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# === Conexión a MongoDB ===
 client = MongoClient("mongodb+srv://admin:admin@student.gdj28nn.mongodb.net/?appName=student")
 db = client["homecenter"]
 
-# === Modelo para consultas ===
 modelo_texto = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 
-# Modelo CLIP para imágenes (igual que en generate_embeddings.py)
 clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 clip_processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
-# ======================================================
-# 🖼️ HELPER: Convertir URL de imagen a base64
-# ======================================================
 def convert_image_url_to_base64(url: str) -> str:
     """
     Descarga una imagen desde una URL y la convierte a base64 data URI.
@@ -83,11 +76,8 @@ def convert_image_url_to_base64(url: str) -> str:
     
     except Exception as e:
         print(f"Error al convertir imagen {url}: {e}")
-        return url  # Retornar URL original si falla
+        return url
 
-# ======================================================
-# 🖼️ HELPER: Cargar imagen desde base64 o URL
-# ======================================================
 def load_image_from_input(image_input: str) -> Image.Image:
     """
     Carga una imagen desde base64 data URI o URL.
@@ -124,9 +114,6 @@ def load_image_from_input(image_input: str) -> Image.Image:
     except Exception as e:
         raise ValueError(f"Error al cargar imagen: {e}")
 
-# ======================================================
-# 🖼️ HELPER: Generar embedding de imagen con CLIP
-# ======================================================
 def get_image_embedding(image_input: str) -> list:
     """
     Genera embedding vectorial de una imagen usando CLIP (512 dimensiones).
@@ -139,39 +126,30 @@ def get_image_embedding(image_input: str) -> list:
         embedding = clip_model.get_image_features(**inputs)
         return embedding.squeeze().tolist()
 
-# ======================================================
-# 🔎 SEARCH: devuelve también imagen asociada (producto)
-# Acepta 'query' (texto) y/o 'image' (base64 o URL)
-# ======================================================
 @app.post("/search")
 async def search(request: dict = Body(...)):
     query = request.get("query")
     image_input = request.get("image")
     
-    # Validar que al menos uno esté presente
     if not query and not image_input:
         return {"error": "Debe proporcionar 'query' (texto) o 'image' (base64/URL)"}
     
-    # Determinar tipo de búsqueda y generar embedding
     if image_input:
-        # Búsqueda por imagen usando colección embeddings_imagen
         try:
             embedding = get_image_embedding(image_input)
             search_type = "imagen"
             collection_name = "embeddings_imagen"
             embedding_field = "embedding_imagen"
-            index_name = "imagen_index"  # Debes crear este índice en MongoDB Atlas
+            index_name = "imagen_index"
         except Exception as e:
             return {"error": f"Error al procesar imagen: {str(e)}"}
     else:
-        # Búsqueda por texto usando colección embeddings_texto
         embedding = modelo_texto.encode(query).tolist()
         search_type = "texto"
         collection_name = "embeddings_texto"
         embedding_field = "embedding_texto"
         index_name = "vector_index"
 
-    # 1) Búsqueda vectorial en la colección correspondiente
     base_results = list(db[collection_name].aggregate([
         {
             "$vectorSearch": {
@@ -185,8 +163,8 @@ async def search(request: dict = Body(...)):
         {
             "$project": {
                 "_id": 1,
-                "producto_id": 1,  # Para embeddings_imagen
-                "id_origen": 1,     # Para embeddings_texto
+                "producto_id": 1,
+                "id_origen": 1,
                 "origen": 1,
                 "campo": 1,
                 "texto": 1,
@@ -196,9 +174,7 @@ async def search(request: dict = Body(...)):
         }
     ]))
 
-    # 2) Enriquecer resultados de producto con imagen
     for doc in base_results:
-        # Determinar el ID del producto según la colección
         product_id = doc.get("producto_id") or doc.get("id_origen")
         
         if product_id and isinstance(product_id, ObjectId):
@@ -207,22 +183,18 @@ async def search(request: dict = Body(...)):
                 {"nombre_producto": 1, "marca": 1, "imagen_principal": 1, "descripcion": 1}
             )
             if prod:
-                # Serializar _id interno del producto
                 prod["_id"] = str(prod["_id"])
                 
-                # Convertir imagen a base64 si existe
                 if prod.get("imagen_principal"):
                     prod["imagen_principal"] = convert_image_url_to_base64(prod["imagen_principal"])
                 
-                doc["producto"] = prod  # incluye imagen_principal
+                doc["producto"] = prod
         
-        # Serializar IDs
         if doc.get("producto_id"):
             doc["producto_id"] = str(doc["producto_id"])
         if doc.get("id_origen"):
             doc["id_origen"] = str(doc["id_origen"])
 
-    # 3) Serialización segura (ObjectId -> str)
     return jsonable_encoder(
         {
             "search_type": search_type,
@@ -234,20 +206,14 @@ async def search(request: dict = Body(...)):
     )
 
 
-# ======================================================
-# 🤖 RAG: enriquece contexto y respuesta con imágenes
-# Acepta 'query' (texto obligatorio) y/o 'image' (base64 o URL opcional)
-# ======================================================
 @app.post("/rag")
 async def rag(request: dict = Body(...)):
     query = request.get("query")
     image_input = request.get("image")
     
-    # Query de texto es obligatoria para RAG
     if not query:
         return {"error": "El campo 'query' (texto) es obligatorio para RAG"}
 
-    # Generar embedding (si hay imagen, usarla para contexto adicional; sino, solo texto)
     if image_input:
         try:
             embedding = get_image_embedding(image_input)
@@ -264,7 +230,6 @@ async def rag(request: dict = Body(...)):
         embedding_field = "embedding_texto"
         index_name = "vector_index"
 
-    # → Recuperación de contexto vectorial
     retrieved = list(db[collection_name].aggregate([
         {
             "$vectorSearch": {
@@ -289,7 +254,6 @@ async def rag(request: dict = Body(...)):
         }
     ]))
 
-    # → Enriquecer con datos/imagen si es producto
     for d in retrieved:
         product_id = d.get("producto_id") or d.get("id_origen")
         
@@ -301,49 +265,47 @@ async def rag(request: dict = Body(...)):
             if prod:
                 prod["_id"] = str(prod["_id"])
                 
-                # Convertir imagen a base64 si existe
                 if prod.get("imagen_principal"):
                     prod["imagen_principal"] = convert_image_url_to_base64(prod["imagen_principal"])
                 
                 d["producto"] = prod
         
-        # Serializar IDs
-        if d.get("producto_id"):
-            d["producto_id"] = str(d["producto_id"])
-        if d.get("id_origen"):
-            d["id_origen"] = str(d["id_origen"])
-        # Serializar IDs
         if d.get("producto_id"):
             d["producto_id"] = str(d["producto_id"])
         if d.get("id_origen"):
             d["id_origen"] = str(d["id_origen"])
 
-    # → Construir texto de contexto para el LLM
     context_parts = []
     for d in retrieved:
         if d.get("texto"):
             context_parts.append(f"- ({d.get('origen', 'producto')}.{d.get('campo', 'info')}): {d['texto']}")
         elif d.get("producto"):
-            # Si es búsqueda por imagen, usar info del producto
             p = d["producto"]
             context_parts.append(f"- Producto: {p.get('nombre_producto')} - {p.get('descripcion', 'Sin descripción')}")
     
     context_text = "\n".join(context_parts) or "No se encontró contexto relevante en la base de datos."
 
-    # → Prompt RAG
     prompt = f"""
-Eres un asistente experto. Responde la siguiente pregunta utilizando SOLO el contexto proporcionado.
+    Eres un asistente experto en productos, servicios y categorías de Homecenter.
+    Tu tarea es responder de forma precisa, útil y clara a la siguiente pregunta del usuario,
+    utilizando EXCLUSIVAMENTE la información disponible en el contexto proporcionado.
 
-### CONTEXTO:
-{context_text}
+    INSTRUCCIONES:
+    - No inventes ni asumas información que no aparezca explícitamente en el contexto.
+    - Si el contexto no contiene la respuesta, di amablemente que no se encontró información suficiente.
+    - Usa un lenguaje natural, breve y profesional.
+    - Si el contexto incluye varios productos o coincidencias, menciona los más relevantes.
+    - Puedes incluir nombres de productos, marcas, descripciones o categorías si ayudan a responder.
 
-### PREGUNTA:
-{query}
+    ### CONTEXTO (información recuperada desde la base de datos NoSQL de Homecenter):
+    {context_text}
 
-### RESPUESTA:
-"""
+    ### PREGUNTA DEL USUARIO:
+    {query}
 
-    # → Llamada al modelo (Groq)
+    ### RESPUESTA:
+    """
+
     response = groq_client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[
@@ -354,13 +316,12 @@ Eres un asistente experto. Responde la siguiente pregunta utilizando SOLO el con
     )
     answer = response.choices[0].message.content
 
-    # → Respuesta final: incluye contexto enriquecido con imagen
     return jsonable_encoder(
         {
             "search_type": search_type,
             "query": query,
             "image_provided": bool(image_input),
-            "context_used": retrieved,   # aquí vienen las imagenes si hay productos
+            "context_used": retrieved,
             "answer": answer
         },
         custom_encoder={ObjectId: str}

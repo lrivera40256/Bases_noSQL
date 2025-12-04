@@ -8,9 +8,6 @@ Database_name = "homecenter"
 client = MongoClient(uri)
 db = client[Database_name]
 
-# ============================
-# 1. Obtener los IDs de AREA
-# ============================
 areas = list(db.area.find({}, {"_id": 1, "nombre_area": 1}))
 
 if not areas:
@@ -18,10 +15,6 @@ if not areas:
     exit()
 
 print(f"✔ Áreas encontradas: {len(areas)}")
-
-# ============================
-# 2. Listas de nombres/cargos
-# ============================
 
 nombres = [
     "Carlos", "Ana", "Luis", "María", "Jorge", "Laura", "Andrés", "Valentina", "Sofía",
@@ -50,10 +43,6 @@ calles = [
 
 telefonos_base = ["300", "301", "302", "310", "311", "320", "321", "322"]
 
-# ============================
-# 3. Generar 100 empleados
-# ============================
-
 empleados = []
 
 for i in range(100):
@@ -76,10 +65,6 @@ for i in range(100):
         "telefono": telefono,
         "id_area": area_random["_id"]
     })
-
-# ============================
-# 4. Insertar empleados
-# ============================
 
 resultado = db.empleado.insert_many(empleados)
 
