@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Body
+from fastapi.encoders import jsonable_encoder
 from pymongo import MongoClient
 from sentence_transformers import SentenceTransformer
 from bson import ObjectId
@@ -21,8 +22,8 @@ async def search(request: dict = Body(...)):
     base_results = list(db.embeddings_texto.aggregate([
         {
             "$vectorSearch": {
-                "index": "vector_index",               # <-- tu índice real
-                "path": "embedding_texto",             # <-- tu campo real
+                "index": "vector_index",  # tu índice real
+                "path": "embedding_texto",
                 "queryVector": embedding,
                 "numCandidates": 200,
                 "limit": 10
@@ -50,4 +51,8 @@ async def search(request: dict = Body(...)):
             if prod:
                 doc["producto"] = prod
 
-    return base_results
+    # 🧩 Conversión segura antes del retorno
+    return jsonable_encoder(
+        base_results,
+        custom_encoder={ObjectId: str}
+    )
