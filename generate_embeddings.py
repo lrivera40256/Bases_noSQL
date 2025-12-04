@@ -5,6 +5,7 @@ from PIL import Image
 from datetime import datetime
 import requests
 import io
+from io import BytesIO
 
 # === CONEXIÓN MONGODB ===
 uri = "mongodb+srv://admin:admin@student.gdj28nn.mongodb.net/?appName=student"
@@ -30,13 +31,18 @@ def generar_embedding_texto(texto: str):
         return None
     return modelo_texto.encode(texto).tolist()
 
-def generar_embedding_imagen(url: str):
+def generar_embedding_imagen(url):
     try:
-        if not url:
-            return None
         response = requests.get(url, timeout=10)
-        img = Image.open(io.BytesIO(response.content)).convert("RGB")
-        return modelo_imagen.encode(img).tolist()
+        response.raise_for_status()
+
+        image = Image.open(BytesIO(response.content)).convert("RGB")
+        inputs = clip_processor(images=image, return_tensors="pt")
+
+        with torch.no_grad():
+            embedding = clip_model.get_image_features(**inputs)
+            return embedding.squeeze().tolist()
+
     except Exception as e:
         print(f"⚠️ Error cargando imagen {url}: {e}")
         return None
@@ -46,10 +52,28 @@ def generar_embedding_multimodal(texto: str, url: str):
     try:
         response = requests.get(url, timeout=10)
         img = Image.open(io.BytesIO(response.content)).convert("RGB")
-        return modelo_multimodal.encode({"text": texto, "image": img}).tolist()
+
+        inputs = clip_processor(
+            text=[texto],
+            images=[img],
+            return_tensors="pt",
+            padding=True
+        )
+
+        with torch.no_grad():
+            outputs = clip_model(**inputs)
+            embedding_texto = outputs.text_embeds[0]
+            embedding_imagen = outputs.image_embeds[0]
+
+            # Puedes combinar ambos (por ejemplo, promediando)
+            embedding_combinado = (embedding_texto + embedding_imagen) / 2
+
+        return embedding_combinado.cpu().numpy().tolist()
+
     except Exception as e:
         print(f"⚠️ Error multimodal en {url}: {e}")
         return None
+
 
 # === MAPA DE CAMPOS DE TEXTO ===
 colecciones_y_campos = {
@@ -61,70 +85,73 @@ colecciones_y_campos = {
 }
 
 # === EMBEDDINGS DE TEXTO ===
-print("\n🧠 Generando embeddings de TEXTO...")
-total_texto = 0
+# print("\n🧠 Generando embeddings de TEXTO...")
+# total_texto = 0
 
-for nombre_col, campos in colecciones_y_campos.items():
-    for doc in db[nombre_col].find({}):
-        for campo in campos:
-            valor = doc.get(campo)
-            if not isinstance(valor, str) or valor.strip() == "":
-                continue
+# for nombre_col, campos in colecciones_y_campos.items():
+#     for doc in db[nombre_col].find({}):
+#         for campo in campos:
+#             valor = doc.get(campo)
+#             if not isinstance(valor, str) or valor.strip() == "":
+#                 continue
 
-            if db.embeddings_texto.find_one({
-                "origen": nombre_col,
-                "id_origen": doc["_id"],
-                "campo": campo
-            }):
-                continue
+#             if db.embeddings_texto.find_one({
+#                 "origen": nombre_col,
+#                 "id_origen": doc["_id"],
+#                 "campo": campo
+#             }):
+#                 continue
 
-            emb = generar_embedding_texto(valor)
-            if not emb:
-                continue
+#             emb = generar_embedding_texto(valor)
+#             if not emb:
+#                 continue
 
-            db.embeddings_texto.insert_one({
-                "origen": nombre_col,
-                "id_origen": doc["_id"],
-                "campo": campo,
-                "texto": valor,
-                "embedding_texto": emb,
-                "metadata": {
-                    "modelo": "all-MiniLM-L6-v2",
-                    "fecha_creacion": datetime.utcnow()
-                }
-            })
-            total_texto += 1
+#             db.embeddings_texto.insert_one({
+#                 "origen": nombre_col,
+#                 "id_origen": doc["_id"],
+#                 "campo": campo,
+#                 "texto": valor,
+#                 "embedding_texto": emb,
+#                 "metadata": {
+#                     "modelo": "all-MiniLM-L6-v2",
+#                     "fecha_creacion": datetime.utcnow()
+#                 }
+#             })
+#             total_texto += 1
 
-print(f"✔ {total_texto} embeddings de texto generados.")
+# print(f"✔ {total_texto} embeddings de texto generados.")
 
-# === EMBEDDINGS DE IMÁGENES ===
-print("\n🖼 Generando embeddings de IMÁGENES...")
-total_imagen = 0
+# db.embeddings_imagen.delete_many({})
+# print("🧠 Embeddings de IMAGEN eliminados para regeneración.")
 
-for p in db.producto.find({}, {"_id": 1, "imagen_principal": 1, "descripcion_larga": 1}):
-    url = p.get("imagen_principal", "")
-    if not url:
-        continue
+# # === EMBEDDINGS DE IMÁGENES ===
+# print("\n🖼 Generando embeddings de IMÁGENES...")
+# total_imagen = 0
 
-    if db.embeddings_imagen.find_one({"producto_id": p["_id"]}):
-        continue
+# for p in db.producto.find({}, {"_id": 1, "imagen_principal": 1, "descripcion_larga": 1}):
+#     url = p.get("imagen_principal", "")
+#     if not url:
+#         continue
 
-    emb_img = generar_embedding_imagen(url)
-    if not emb_img:
-        continue
+#     if db.embeddings_imagen.find_one({"producto_id": p["_id"]}):
+#         continue
 
-    db.embeddings_imagen.insert_one({
-        "producto_id": p["_id"],
-        "imagen_url": url,
-        "embedding_imagen": emb_img,
-        "metadata": {
-            "modelo": "clip-vit-base-patch32",
-            "fecha_creacion": datetime.utcnow()
-        }
-    })
-    total_imagen += 1
+#     emb_img = generar_embedding_imagen(url)
+#     if not emb_img:
+#         continue
 
-print(f"✔ {total_imagen} embeddings de imágenes generados.")
+#     db.embeddings_imagen.insert_one({
+#         "producto_id": p["_id"],
+#         "imagen_url": url,
+#         "embedding_imagen": emb_img,
+#         "metadata": {
+#             "modelo": "clip-vit-base-patch32",
+#             "fecha_creacion": datetime.utcnow()
+#         }
+#     })
+#     total_imagen += 1
+
+# print(f"✔ {total_imagen} embeddings de imágenes generados.")
 
 # === EMBEDDINGS MULTIMODALES ===
 print("\n🎯 Generando embeddings MULTIMODALES (texto + imagen)...")

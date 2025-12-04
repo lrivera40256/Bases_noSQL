@@ -182,7 +182,7 @@ productos = [
         "marca": "Indurama",
         "categoria": { "nombre_categoria_producto": "Cocinas y Empotrables", "descripcion": "Cubiertas, hornos y campanas." },
         "proveedor": { "nombre_proveedor": "ElectroDistribuciones S.A.", "telefono": "3124567890", "correo": "contacto@electrodistribuciones.com" },
-        "imagen_principal": "https://drive.google.com/uc?export=download&id=1wAFA2CYpQMIU_P-np9MttsyGIDl1YJJd	"
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1wAFA2CYpQMIU_P-np9MttsyGIDl1YJJd"
     },
     # 12) Parrilla mixta gas + carbón (Mr.Beef)
     {
