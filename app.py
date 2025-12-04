@@ -17,12 +17,12 @@ async def search(request: dict = Body(...)):
     query = request["query"]
     embedding = modelo_texto.encode(query).tolist()
 
-    # 1️⃣ Búsqueda vectorial sobre todos los embeddings
+    # 1️⃣ Búsqueda vectorial
     base_results = list(db.embeddings_texto.aggregate([
         {
             "$vectorSearch": {
-                "index": "idx_text_embeddings",
-                "path": "embedding_texto",
+                "index": "vector_index",               # <-- tu índice real
+                "path": "embedding_texto",             # <-- tu campo real
                 "queryVector": embedding,
                 "numCandidates": 200,
                 "limit": 10
@@ -30,7 +30,7 @@ async def search(request: dict = Body(...)):
         },
         {
             "$project": {
-                "_id": 0,
+                "_id": 1,
                 "id_origen": 1,
                 "origen": 1,
                 "campo": 1,
@@ -40,10 +40,13 @@ async def search(request: dict = Body(...)):
         }
     ]))
 
-    # 2️⃣ Enriquecer resultados (solo productos)
+    # 2️⃣ Enriquecer los resultados (solo productos)
     for doc in base_results:
         if doc["origen"] == "producto":
-            prod = db.producto.find_one({"_id": ObjectId(doc["id_origen"])}, {"nombre_producto": 1, "marca": 1})
+            prod = db.producto.find_one(
+                {"_id": doc["id_origen"]},
+                {"nombre_producto": 1, "marca": 1}
+            )
             if prod:
                 doc["producto"] = prod
 
