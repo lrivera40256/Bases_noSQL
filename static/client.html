@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cliente - Search & RAG</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto,
+          "Helvetica Neue", Arial;
+        margin: 24px;
+      }
+      .box {
+        border: 1px solid #ddd;
+        padding: 16px;
+        margin-bottom: 18px;
+        border-radius: 8px;
+      }
+      .images {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+      .images img {
+        max-width: 200px;
+        max-height: 160px;
+        border-radius: 6px;
+        object-fit: cover;
+        border: 1px solid #ccc;
+      }
+      pre {
+        background: #f6f8fa;
+        padding: 12px;
+        border-radius: 6px;
+        overflow: auto;
+      }
+      label {
+        display: block;
+        margin-bottom: 6px;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+      button {
+        margin-top: 8px;
+        padding: 8px 12px;
+        border-radius: 6px;
+        background: #0366d6;
+        color: white;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Cliente para endpoints /search y /rag</h1>
+
+    <div class="box">
+      <h2>/search</h2>
+      <label>Consulta (query) - opcional si envías imagen</label>
+      <input
+        id="search-query"
+        type="text"
+        placeholder="Ej: taladro inalámbrico"
+        value=""
+      />
+
+      <label style="margin-top: 12px">O buscar por imagen:</label>
+      <input
+        id="search-image"
+        type="file"
+        accept="image/*"
+        style="margin-bottom: 8px"
+      />
+      <div style="font-size: 0.9em; color: #666; margin-bottom: 8px">
+        También puedes pegar una URL de imagen:
+        <input
+          id="search-image-url"
+          type="text"
+          placeholder="https://ejemplo.com/imagen.jpg"
+          style="width: 100%; margin-top: 4px"
+        />
+      </div>
+
+      <!-- Vista previa y botón eliminar -->
+      <div
+        id="search-image-preview"
+        style="
+          display: none;
+          margin-top: 8px;
+          padding: 8px;
+          background: #f0f0f0;
+          border-radius: 6px;
+        "
+      >
+        <div style="display: flex; align-items: center; gap: 12px">
+          <img
+            id="search-preview-img"
+            style="
+              max-width: 100px;
+              max-height: 100px;
+              border-radius: 4px;
+              object-fit: cover;
+            "
+          />
+          <div style="flex: 1">
+            <div
+              style="font-weight: bold; margin-bottom: 4px"
+              id="search-image-name"
+            ></div>
+            <button
+              id="search-clear-image"
+              style="background: #d73a49; padding: 4px 12px"
+            >
+              ❌ Eliminar imagen
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <button id="search-send">Enviar a /search</button>
+
+      <div id="search-result" style="margin-top: 12px"></div>
+      <div id="search-images" class="images"></div>
+    </div>
+
+    <div class="box">
+      <h2>/rag</h2>
+      <label>Consulta (query) - obligatorio</label>
+      <input
+        id="rag-query"
+        type="text"
+        placeholder="Ej: características del producto X"
+        value=""
+      />
+
+      <label style="margin-top: 12px">Opcionalmente buscar por imagen:</label>
+      <input
+        id="rag-image"
+        type="file"
+        accept="image/*"
+        style="margin-bottom: 8px"
+      />
+      <div style="font-size: 0.9em; color: #666; margin-bottom: 8px">
+        También puedes pegar una URL de imagen:
+        <input
+          id="rag-image-url"
+          type="text"
+          placeholder="https://ejemplo.com/imagen.jpg"
+          style="width: 100%; margin-top: 4px"
+        />
+      </div>
+
+      <!-- Vista previa y botón eliminar -->
+      <div
+        id="rag-image-preview"
+        style="
+          display: none;
+          margin-top: 8px;
+          padding: 8px;
+          background: #f0f0f0;
+          border-radius: 6px;
+        "
+      >
+        <div style="display: flex; align-items: center; gap: 12px">
+          <img
+            id="rag-preview-img"
+            style="
+              max-width: 100px;
+              max-height: 100px;
+              border-radius: 4px;
+              object-fit: cover;
+            "
+          />
+          <div style="flex: 1">
+            <div
+              style="font-weight: bold; margin-bottom: 4px"
+              id="rag-image-name"
+            ></div>
+            <button
+              id="rag-clear-image"
+              style="background: #d73a49; padding: 4px 12px"
+            >
+              ❌ Eliminar imagen
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <button id="rag-send">Enviar a /rag</button>
+
+      <div id="rag-result" style="margin-top: 12px"></div>
+      <div id="rag-images" class="images"></div>
+    </div>
+
+    <script>
+      const apiBase = ""; // dejar vacío para usar mismo host/origen (http://localhost:8000 si abres el archivo desde server)
+
+      function clear(containerId) {
+        document.getElementById(containerId).innerHTML = "";
+      }
+
+      function showJSON(containerId, obj) {
+        const el = document.getElementById(containerId);
+        el.innerHTML = "<pre>" + JSON.stringify(obj, null, 2) + "</pre>";
+      }
+
+      // Busca objetos con posibles URLs de imagen y las muestra
+      function extractAndShowImages(destContainerId, payload) {
+        const dest = document.getElementById(destContainerId);
+        dest.innerHTML = "";
+        const urls = new Set();
+
+        function scan(value) {
+          if (!value) return;
+          if (typeof value === "string") {
+            if (isLikelyImageUrl(value)) urls.add(value);
+            return;
+          }
+          if (Array.isArray(value)) {
+            value.forEach(scan);
+            return;
+          }
+          if (typeof value === "object") {
+            for (const k in value) {
+              // claves comunes que contienen imagen
+              if (
+                /imagen|img|image|picture|url|src/i.test(k) &&
+                typeof value[k] === "string"
+              ) {
+                if (isLikelyImageUrl(value[k])) urls.add(value[k]);
+              }
+              scan(value[k]);
+            }
+          }
+        }
+
+        function isLikelyImageUrl(s) {
+          // Solo acepta data:image/* o URLs absolutas http(s)
+          if (/^data:image\//i.test(s)) return true;
+
+          // Debe comenzar con http:// o https:// para ser considerada URL absoluta
+          if (!/^https?:\/\//i.test(s)) return false;
+
+          try {
+            const url = new URL(s);
+            // Debe tener extensión de imagen o hostname CDN/servicio de almacenamiento conocido
+            return (
+              /\.(png|jpe?g|gif|webp|svg|bmp|ico)(\?.*)?$/i.test(
+                url.pathname
+              ) ||
+              /cdn|cloudinary|imgur|cloudfront|imagekit|drive\.google\.com|dropbox|s3\.amazonaws/i.test(
+                url.hostname
+              )
+            );
+          } catch (e) {
+            return false;
+          }
+        }
+
+        scan(payload);
+
+        if (urls.size === 0) {
+          dest.innerHTML =
+            "<em>No se detectaron imágenes en la respuesta.</em>";
+          return;
+        }
+
+        urls.forEach((u) => {
+          // Convertir URLs de Google Drive al formato correcto
+          let imgUrl = u;
+          if (u.includes("drive.google.com")) {
+            // Extraer el ID del archivo de diferentes formatos de URL de Google Drive
+            const match = u.match(/[?&]id=([^&]+)/);
+            if (match && match[1]) {
+              // Usar el formato de thumbnail que no tiene problemas de CORS
+              imgUrl = `https://drive.google.com/thumbnail?id=${match[1]}&sz=w400`;
+            }
+          }
+
+          const img = document.createElement("img");
+          img.src = imgUrl;
+          img.alt = "imagen";
+          img.loading = "lazy";
+          img.onerror = function () {
+            // Si falla, intentar con el formato original pero como iframe (fallback)
+            this.style.display = "none";
+            const link = document.createElement("a");
+            link.href = u;
+            link.target = "_blank";
+            link.textContent = "🖼️ Ver imagen (click aquí)";
+            link.style.display = "block";
+            link.style.padding = "8px";
+            link.style.background = "#f0f0f0";
+            link.style.borderRadius = "4px";
+            link.style.textDecoration = "none";
+            link.style.color = "#0366d6";
+            this.parentNode.insertBefore(link, this.nextSibling);
+          };
+          dest.appendChild(img);
+        });
+      }
+
+      async function postJson(path, body) {
+        const url = apiBase + path;
+        const resp = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+        if (!resp.ok) {
+          const text = await resp.text();
+          throw new Error(`HTTP ${resp.status}: ${text}`);
+        }
+        return resp.json();
+      }
+
+      // Convertir archivo de imagen a base64
+      function fileToBase64(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+      }
+
+      // Mostrar vista previa de imagen seleccionada
+      function showImagePreview(previewId, imgId, nameId, file, url) {
+        const preview = document.getElementById(previewId);
+        const img = document.getElementById(imgId);
+        const name = document.getElementById(nameId);
+
+        if (file) {
+          // Archivo local
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            img.src = e.target.result;
+            name.textContent = file.name;
+            preview.style.display = "block";
+          };
+          reader.readAsDataURL(file);
+        } else if (url) {
+          // URL
+          img.src = url;
+          name.textContent = "Imagen desde URL";
+          preview.style.display = "block";
+        }
+      }
+
+      // Limpiar imagen seleccionada
+      function clearImage(fileInputId, urlInputId, previewId) {
+        document.getElementById(fileInputId).value = "";
+        document.getElementById(urlInputId).value = "";
+        document.getElementById(previewId).style.display = "none";
+      }
+
+      // Event listeners para vista previa automática
+      document
+        .getElementById("search-image")
+        .addEventListener("change", (e) => {
+          if (e.target.files[0]) {
+            showImagePreview(
+              "search-image-preview",
+              "search-preview-img",
+              "search-image-name",
+              e.target.files[0]
+            );
+          }
+        });
+
+      document
+        .getElementById("search-image-url")
+        .addEventListener("input", (e) => {
+          const url = e.target.value.trim();
+          if (
+            url &&
+            (url.startsWith("http://") || url.startsWith("https://"))
+          ) {
+            showImagePreview(
+              "search-image-preview",
+              "search-preview-img",
+              "search-image-name",
+              null,
+              url
+            );
+          } else if (!url) {
+            document.getElementById("search-image-preview").style.display =
+              "none";
+          }
+        });
+
+      document.getElementById("rag-image").addEventListener("change", (e) => {
+        if (e.target.files[0]) {
+          showImagePreview(
+            "rag-image-preview",
+            "rag-preview-img",
+            "rag-image-name",
+            e.target.files[0]
+          );
+        }
+      });
+
+      document
+        .getElementById("rag-image-url")
+        .addEventListener("input", (e) => {
+          const url = e.target.value.trim();
+          if (
+            url &&
+            (url.startsWith("http://") || url.startsWith("https://"))
+          ) {
+            showImagePreview(
+              "rag-image-preview",
+              "rag-preview-img",
+              "rag-image-name",
+              null,
+              url
+            );
+          } else if (!url) {
+            document.getElementById("rag-image-preview").style.display = "none";
+          }
+        });
+
+      // Botones para eliminar imagen
+      document
+        .getElementById("search-clear-image")
+        .addEventListener("click", () => {
+          clearImage(
+            "search-image",
+            "search-image-url",
+            "search-image-preview"
+          );
+        });
+
+      document
+        .getElementById("rag-clear-image")
+        .addEventListener("click", () => {
+          clearImage("rag-image", "rag-image-url", "rag-image-preview");
+        });
+
+      document
+        .getElementById("search-send")
+        .addEventListener("click", async () => {
+          const q = document.getElementById("search-query").value.trim();
+          const imageFile = document.getElementById("search-image").files[0];
+          const imageUrl = document
+            .getElementById("search-image-url")
+            .value.trim();
+
+          clear("search-images");
+          clear("search-result");
+
+          if (!q && !imageFile && !imageUrl) {
+            document.getElementById("search-result").innerText =
+              "Escribe una query o proporciona una imagen.";
+            return;
+          }
+
+          try {
+            const body = {};
+            if (q) body.query = q;
+
+            // Priorizar archivo sobre URL
+            if (imageFile) {
+              body.image = await fileToBase64(imageFile);
+            } else if (imageUrl) {
+              body.image = imageUrl;
+            }
+
+            const data = await postJson("/search", body);
+            showJSON("search-result", data);
+            extractAndShowImages("search-images", data);
+          } catch (err) {
+            document.getElementById("search-result").innerText = err.message;
+          }
+        });
+
+      document
+        .getElementById("rag-send")
+        .addEventListener("click", async () => {
+          const q = document.getElementById("rag-query").value.trim();
+          const imageFile = document.getElementById("rag-image").files[0];
+          const imageUrl = document
+            .getElementById("rag-image-url")
+            .value.trim();
+
+          clear("rag-images");
+          clear("rag-result");
+
+          if (!q) {
+            document.getElementById("rag-result").innerText =
+              "Escribe una query (obligatorio para RAG).";
+            return;
+          }
+
+          try {
+            const body = { query: q };
+
+            // Priorizar archivo sobre URL
+            if (imageFile) {
+              body.image = await fileToBase64(imageFile);
+            } else if (imageUrl) {
+              body.image = imageUrl;
+            }
+
+            const data = await postJson("/rag", body);
+            showJSON("rag-result", data);
+            extractAndShowImages("rag-images", data);
+          } catch (err) {
+            document.getElementById("rag-result").innerText = err.message;
+          }
+        });
+    </script>
+  </body>
+</html>

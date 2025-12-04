@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pymongo
+sentence-transformers
+transformers
+torch
+pillow
+python-dotenv
+groq
+requests
