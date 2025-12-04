@@ -288,7 +288,7 @@ productos = [
             "telefono": "3124567890",
             "correo": "contacto@electrodistribuciones.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1NMvvAy-UYlGKDAB1HvYey_A0PPePuGHN"
     },
     {
         "nombre_producto": "Congelador Horizontal 400 L Blanco",
@@ -305,7 +305,7 @@ productos = [
             "telefono": "3109876543",
             "correo": "ventas@friosolutions.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1KgGaBkt4ohMsi1IWJiWq1h9qiqVZeJcM"
     },
     {
         "nombre_producto": "Lavavajillas Empotrable 12 Puestos Acero Inoxidable",
@@ -322,7 +322,7 @@ productos = [
             "telefono": "3124567890",
             "correo": "contacto@electrodistribuciones.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1TPc3OZeGpoZyz0hzoypt3FKt_6CalY-K"
     },
     {
         "nombre_producto": "Silla Oficina Ergonómica Respaldo Malla Negra",
@@ -339,7 +339,7 @@ productos = [
             "telefono": "3145678901",
             "correo": "contacto@mueblesexpress.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1MA6PbeqYm7F-NR_QWiVPymoIomumk_Ne"
     },
     {
         "nombre_producto": "Silla Gamer Recline Pro Blanco y Negro",
@@ -356,7 +356,7 @@ productos = [
             "telefono": "3161234567",
             "correo": "ventas@gamerstore.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1BdFi3Q_KvMNg5Wqi_FWC8LXHYRR5XBXt"
     },
     {
         "nombre_producto": "Silla Ejecutiva Alta con Cabecero Gris",
@@ -373,7 +373,7 @@ productos = [
             "telefono": "3145678901",
             "correo": "contacto@mueblesexpress.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=17976CvaZI552-a3aXwErPq2NK12OBWl3"
     },
     {
         "nombre_producto": "Silla Ejecutiva Blanca con Cabecero",
@@ -390,7 +390,7 @@ productos = [
             "telefono": "3145678901",
             "correo": "contacto@mueblesexpress.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1ekCJZLqVfoMDNCRNoa-_QJ4sjxfkNLn8"
     },
     {
         "nombre_producto": "Pintura Viniltex Advanced Mate 5 Galones",
@@ -407,7 +407,7 @@ productos = [
             "telefono": "3187654321",
             "correo": "ventas@colorpaint.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=19lgJalewSYc4ZjgIdUny5KuuvZ2unbdV"
     },
     {
         "nombre_producto": "Pintura TopEx Pro 2000 Blanco 5 Galones",
@@ -424,7 +424,7 @@ productos = [
             "telefono": "3187654321",
             "correo": "ventas@colorpaint.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=15qW3f7LpzTxrBtOv3VL89syK63Qu6jJS"
     },
     {
         "nombre_producto": "Pintura Viniltex Advanced Mate 1 Galón",
@@ -441,7 +441,7 @@ productos = [
             "telefono": "3187654321",
             "correo": "ventas@colorpaint.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1k1UH37zTrVhV3AOriPt2ZpQX3MvgPy_O"
     },
     {
         "nombre_producto": "Escritorio con Estantería Lateral Roble y Blanco",
@@ -458,7 +458,7 @@ productos = [
             "telefono": "3145678901",
             "correo": "contacto@mueblesexpress.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=116rJQHHvJ3bDTK-krat4_XE51-aJoCAx"
     },
     {
         "nombre_producto": "Escritorio en L con Estantería Lateral Negro y Roble",
@@ -475,7 +475,7 @@ productos = [
             "telefono": "3145678901",
             "correo": "contacto@mueblesexpress.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1XA-925W7Hs1ZwQX5IZ4HGJbK4Dwo7Nwk"
     },
     {
         "nombre_producto": "Escritorio Metálico con Superficie de Vidrio",
@@ -492,7 +492,7 @@ productos = [
             "telefono": "3145678901",
             "correo": "contacto@mueblesexpress.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1313m53WwZavTVe8VIgbOqZ4tC0suIPQZ"
     },
     {
         "nombre_producto": "Centro de Computo Modular Blanco con Biblioteca",
@@ -509,7 +509,7 @@ productos = [
             "telefono": "3145678901",
             "correo": "contacto@mueblesexpress.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1jtFdGDSFIeiu8b1oRS_QiWUpdCfLrMfn"
     },
     {
         "nombre_producto": "Biblioteca Alta 5 Niveles Color Nogal",
@@ -526,7 +526,7 @@ productos = [
             "telefono": "3145678901",
             "correo": "contacto@mueblesexpress.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1_TGyoMQtiGBF4GHr6n9FSgF-4fe14xC_"
     },
     {
         "nombre_producto": "Organizador Modular 6 Cubos Blanco",
@@ -543,7 +543,7 @@ productos = [
             "telefono": "3157892345",
             "correo": "info@decohome.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1IjoBnXaPFyU6FOxCQV9wVrGqyJryPW_x"
     },
     {
         "nombre_producto": "Estantería Baja 6 Cubos Blanco Mate",
@@ -560,7 +560,7 @@ productos = [
             "telefono": "3157892345",
             "correo": "info@decohome.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=168yu5R-f_UziUxAglL19A6uKxmGi-BkP"
     },
     {
         "nombre_producto": "Estantería 8 Cubos con Cajas Textiles Grises",
@@ -577,7 +577,7 @@ productos = [
             "telefono": "3157892345",
             "correo": "info@decohome.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1jOM6FwvSy3lbzldrbkUoytpPHiANQM1S"
     },
     {
         "nombre_producto": "Cocina Integral 5 Puertas 1 Cajón Roble y Blanco",
@@ -594,7 +594,7 @@ productos = [
             "telefono": "3134567890",
             "correo": "ventas@cocinafacil.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1aGYilt9Ix7O0nyKzV2kFiQRfc84OA2i9"
     },
     {
         "nombre_producto": "Cocina Modular en L 7 Puertas Roble y Blanco",
@@ -611,7 +611,7 @@ productos = [
             "telefono": "3134567890",
             "correo": "ventas@cocinafacil.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1f4otmIwmYQ5vye-y4mitcu4fjOs42OVc"
     },
     {
         "nombre_producto": "Cocina Integral 4 Puertas Madera Natural y Beige",
@@ -628,7 +628,7 @@ productos = [
             "telefono": "3134567890",
             "correo": "ventas@cocinafacil.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1N5JYjnSum3rbLf2bTgtTxUrGD2bPauY1"
     },
     {
         "nombre_producto": "Cocina Integral Moderna Roble Claro y Negro",
@@ -645,7 +645,7 @@ productos = [
             "telefono": "3134567890",
             "correo": "ventas@cocinafacil.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1PRszugOUXtHvHpG6osKaC_poZ4plglKG"
     },
     {
         "nombre_producto": "Cocina en L Moderna Roble Claro y Grafito",
@@ -662,7 +662,7 @@ productos = [
             "telefono": "3134567890",
             "correo": "ventas@cocinafacil.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1K94LZNclNhqHuzgwYRO0XCrUWaE5_Vbu"
     },
     {
         "nombre_producto": "Comedor 6 Puestos Negro con Sillas Acolchadas",
@@ -679,7 +679,7 @@ productos = [
             "telefono": "3157892345",
             "correo": "info@decohome.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1uDESXXakDCk_ZCyyAMrGfwteO69OqfXI"
     },
     {
         "nombre_producto": "Comedor 6 Puestos Estilo Escandinavo",
@@ -696,7 +696,7 @@ productos = [
             "telefono": "3166549870",
             "correo": "contacto@nordicliving.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1DAs17QpW1iiONXZS3z7Qtzj9qJCgYH9d"
     },
     {
         "nombre_producto": "Comedor 4 Puestos Vidrio y Madera Natural",
@@ -713,7 +713,7 @@ productos = [
             "telefono": "3157892345",
             "correo": "info@decohome.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=19HFES9IgfMxk2UWxKaKibsKMVdpKueep"
     },
     {
         "nombre_producto": "Lavadora Samsung Carga Frontal 22Kg Gris",
@@ -730,7 +730,7 @@ productos = [
             "telefono": "3109876543",
             "correo": "ventas@electroglobal.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=16bjGSSLymM9IhQ49yLf29rhpIHkA-Cq-"
     },
     {
         "nombre_producto": "Lavadora Secadora LG WashTower Negra",
@@ -747,7 +747,7 @@ productos = [
             "telefono": "3109876543",
             "correo": "ventas@electroglobal.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1RL2lEM_DAeq_x2HVd1R5KKhPi6m42lvR"
     },
     {
         "nombre_producto": "Centro de Lavado Whirlpool Blanco 17Kg",
@@ -764,7 +764,7 @@ productos = [
             "telefono": "3109876543",
             "correo": "ventas@electroglobal.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1oTCZBR5d-SG5QAtW9gCSjvoxZo1Z99MY"
     },
     {
         "nombre_producto": "Televisor Samsung 50'' QLED 4K con Barra de Sonido",
@@ -781,14 +781,14 @@ productos = [
             "telefono": "3109876543",
             "correo": "ventas@electroglobal.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1BdVvD9vCT0cT_1MFhS0IViHU6ESnmy1F"
     },
     {
-        "nombre_producto": "Televisor Smart TV Sony 55'' 4K Google TV",
-        "descripcion": "Televisor inteligente Sony 4K con sistema operativo Google TV.",
-        "descripcion_larga": "Smart TV Sony 55 pulgadas con resolución 4K UHD, HDR10, compatibilidad con Google Assistant y Chromecast integrado. Experiencia fluida y acceso directo a Netflix, Disney+ y YouTube.",
+        "nombre_producto": "Televisor Smart TV challenger 55'' 4K Google TV",
+        "descripcion": "Televisor inteligente challenger 4K con sistema operativo Google TV.",
+        "descripcion_larga": "Smart TV challenger 55 pulgadas con resolución 4K UHD, HDR10, compatibilidad con Google Assistant y Chromecast integrado. Experiencia fluida y acceso directo a Netflix, Disney+ y YouTube.",
         "precio": 3599900,
-        "marca": "Sony",
+        "marca": "challenger",
         "categoria": {
             "nombre_categoria_producto": "Electrodomésticos",
             "descripcion": "Televisores inteligentes con sistema Google TV."
@@ -798,6 +798,6 @@ productos = [
             "telefono": "3109876543",
             "correo": "ventas@electroglobal.com"
         },
-        "imagen_principal": ""
+        "imagen_principal": "https://drive.google.com/uc?export=download&id=1yVyNx568rr_HtbpME2dM3Ps2A5wgA5j1"
     }
 ]
