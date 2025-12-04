@@ -1,105 +1,164 @@
 # -*- coding: utf-8 -*-
-# ============================================================
-# GENERACIÓN DE EMBEDDINGS PARA RAG (texto + imágenes)
-# ============================================================
-
 from pymongo import MongoClient
 from sentence_transformers import SentenceTransformer
-import clip
-import torch
 from PIL import Image
+from datetime import datetime
 import requests
-from io import BytesIO
-from tqdm import tqdm
+import io
 
-# ============================================================
-# CONEXIÓN A MONGO
-# ============================================================
-
-uri = "mongodb+srv://davidsuarez38528:1055752199@basesnorelacionales.gqulgyl.mongodb.net/?appName=BasesNoRelacionales"
-Database_name = "homecenter"
-
+# === CONEXIÓN MONGODB ===
+uri = "mongodb+srv://admin:admin@student.gdj28nn.mongodb.net/?appName=student"
 client = MongoClient(uri)
-db = client[Database_name]
+db = client["homecenter"]
 
-print("✔ Conectado a MongoDB Atlas")
+# === MODELOS ===
 
-# ============================================================
-# MODELOS DE EMBEDDINGS
-# ============================================================
+# 🔹 Modelo para embeddings de texto
+from sentence_transformers import SentenceTransformer
+modelo_texto = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 
-print("⏳ Cargando modelo de texto (MiniLM-L6)...")
-model_text = SentenceTransformer("all-MiniLM-L6-v2")
+# 🔹 Modelo CLIP para embeddings de imagen y multimodales
+from transformers import CLIPProcessor, CLIPModel
+import torch
 
-print("⏳ Cargando modelo de imágenes (CLIP ViT-B/32)...")
-device = "cuda" if torch.cuda.is_available() else "cpu"
-model_clip, preprocess = clip.load("ViT-B/32", device=device)
+clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+clip_processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
-print("✔ Modelos cargados correctamente\n")
+# === FUNCIONES ===
+def generar_embedding_texto(texto: str):
+    if not texto or texto.strip() == "":
+        return None
+    return modelo_texto.encode(texto).tolist()
 
-# ============================================================
-# FUNCIÓN PARA GENERAR EMBEDDING DE TEXTO
-# ============================================================
-
-def generar_embedding_texto(texto):
+def generar_embedding_imagen(url: str):
     try:
-        return model_text.encode(texto).tolist()
-    except:
+        if not url:
+            return None
+        response = requests.get(url, timeout=10)
+        img = Image.open(io.BytesIO(response.content)).convert("RGB")
+        return modelo_imagen.encode(img).tolist()
+    except Exception as e:
+        print(f"⚠️ Error cargando imagen {url}: {e}")
         return None
 
-# ============================================================
-# FUNCIÓN PARA GENERAR EMBEDDING DE IMAGEN
-# ============================================================
-
-def generar_embedding_imagen(url):
+def generar_embedding_multimodal(texto: str, url: str):
+    """Combina texto + imagen con CLIP."""
     try:
         response = requests.get(url, timeout=10)
-        image = Image.open(BytesIO(response.content)).convert("RGB")
-        image = preprocess(image).unsqueeze(0).to(device)
-
-        with torch.no_grad():
-            embedding = model_clip.encode_image(image)
-
-        return embedding.cpu().numpy().flatten().tolist()
-
+        img = Image.open(io.BytesIO(response.content)).convert("RGB")
+        return modelo_multimodal.encode({"text": texto, "image": img}).tolist()
     except Exception as e:
-        print(f"⚠ Error cargando imagen {url}: {e}")
+        print(f"⚠️ Error multimodal en {url}: {e}")
         return None
 
-# ============================================================
-# PROCESAR TODOS LOS PRODUCTOS
-# ============================================================
+# === MAPA DE CAMPOS DE TEXTO ===
+colecciones_y_campos = {
+    "cliente": ["nombre", "apellido", "direccion", "correo", "telefono"],
+    "sucursal": ["nombre_sucursal", "direccion", "ciudad", "descripcion"],
+    "area": ["nombre_area"],
+    "empleado": ["nombre", "apellido", "correo", "cargo", "direccion"],
+    "producto": ["nombre_producto", "descripcion", "descripcion_larga", "marca"],
+}
 
-productos = list(db.producto.find({}))
-print(f"🔍 Productos encontrados: {len(productos)}\n")
+# === EMBEDDINGS DE TEXTO ===
+print("\n🧠 Generando embeddings de TEXTO...")
+total_texto = 0
 
-for producto in tqdm(productos, desc="Generando embeddings"):
+for nombre_col, campos in colecciones_y_campos.items():
+    for doc in db[nombre_col].find({}):
+        for campo in campos:
+            valor = doc.get(campo)
+            if not isinstance(valor, str) or valor.strip() == "":
+                continue
 
-    descripcion_larga = producto.get("descripcion_larga", "")
-    imagen_url = producto.get("imagen_principal", None)
+            if db.embeddings_texto.find_one({
+                "origen": nombre_col,
+                "id_origen": doc["_id"],
+                "campo": campo
+            }):
+                continue
 
-    # Embedding de texto
-    emb_texto = generar_embedding_texto(descripcion_larga)
+            emb = generar_embedding_texto(valor)
+            if not emb:
+                continue
 
-    # Embedding de imagen
-    emb_imagen = generar_embedding_imagen(imagen_url) if imagen_url else None
+            db.embeddings_texto.insert_one({
+                "origen": nombre_col,
+                "id_origen": doc["_id"],
+                "campo": campo,
+                "texto": valor,
+                "embedding_texto": emb,
+                "metadata": {
+                    "modelo": "all-MiniLM-L6-v2",
+                    "fecha_creacion": datetime.utcnow()
+                }
+            })
+            total_texto += 1
 
-    # Documento para colección embeddings
-    doc = {
-        "origen": "producto",
-        "id_origen": producto["_id"],
-        "texto": descripcion_larga,
-        "embedding_texto": emb_texto,
-        "imagen_url": imagen_url,
-        "embedding_imagen": emb_imagen,
+print(f"✔ {total_texto} embeddings de texto generados.")
+
+# === EMBEDDINGS DE IMÁGENES ===
+print("\n🖼 Generando embeddings de IMÁGENES...")
+total_imagen = 0
+
+for p in db.producto.find({}, {"_id": 1, "imagen_principal": 1, "descripcion_larga": 1}):
+    url = p.get("imagen_principal", "")
+    if not url:
+        continue
+
+    if db.embeddings_imagen.find_one({"producto_id": p["_id"]}):
+        continue
+
+    emb_img = generar_embedding_imagen(url)
+    if not emb_img:
+        continue
+
+    db.embeddings_imagen.insert_one({
+        "producto_id": p["_id"],
+        "imagen_url": url,
+        "embedding_imagen": emb_img,
         "metadata": {
-            "categoria": producto["categoria"]["nombre_categoria_producto"],
-            "marca": producto["marca"],
-            "precio": producto["precio"]
+            "modelo": "clip-vit-base-patch32",
+            "fecha_creacion": datetime.utcnow()
         }
-    }
+    })
+    total_imagen += 1
 
-    db.embeddings.insert_one(doc)
+print(f"✔ {total_imagen} embeddings de imágenes generados.")
 
-print("\n🎉 Embeddings generados y almacenados correctamente.")
+# === EMBEDDINGS MULTIMODALES ===
+print("\n🎯 Generando embeddings MULTIMODALES (texto + imagen)...")
+total_multi = 0
+
+for p in db.producto.find({}, {"_id": 1, "imagen_principal": 1, "descripcion_larga": 1}):
+    url = p.get("imagen_principal", "")
+    texto = p.get("descripcion_larga", "")
+    if not url or not texto.strip():
+        continue
+
+    if db.embeddings_imagen.find_one({
+        "producto_id": p["_id"],
+        "metadata.tipo": "multimodal"
+    }):
+        continue
+
+    emb_multi = generar_embedding_multimodal(texto, url)
+    if not emb_multi:
+        continue
+
+    db.embeddings_imagen.insert_one({
+        "producto_id": p["_id"],
+        "imagen_url": url,
+        "embedding_imagen": emb_multi,
+        "metadata": {
+            "modelo": "CLIP",
+            "tipo": "multimodal",
+            "fecha_creacion": datetime.utcnow()
+        }
+    })
+    total_multi += 1
+
+print(f"✔ {total_multi} embeddings multimodales generados.")
+
 client.close()
+print("\n✅ Pipeline completo finalizado.")
