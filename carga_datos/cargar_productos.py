@@ -173,7 +173,7 @@ productos = [
             "correo": "contacto@electrodistribuciones.com"
         },
         "imagen_principal": "https://drive.google.com/uc?export=download&id=1UvNxepC2hHtKuw6u62EzcE75ybySo4k5"
-    }
+    },
     {
         "nombre_producto": "Estufa Empotrable 5 Quemadores Vidrio Negro",
         "descripcion": "Cubierta a gas de 5 quemadores con parrillas en hierro fundido.",
@@ -213,7 +213,7 @@ productos = [
         "descripcion_larga": "Set para terraza con estructura metálica y recubrimiento en ratán sintético color beige. Mesa rectangular con vidrio templado y seis sillas ergonómicas con apoyabrazos. Resistente a intemperie.",
         "precio": 1599900,
         "marca": "Home Collection",
-        "categoria": { "nombre_categoriaproducto": "Muebles de Exterior", "descripcion": "Comedores de jardín y terrazas." },
+        "categoria": { "nombre_categoria_producto": "Muebles de Exterior", "descripcion": "Comedores de jardín y terrazas." },
         "proveedor": { "nombre_proveedor": "Verde & Madera S.A.S.", "telefono": "3114567788", "correo": "contacto@verdemadera.com" },
         "imagen_principal": "https://drive.google.com/uc?export=download&id=1MMfu_3fnNIAUvQY9yka1LW6OZ85cWls-"
     },
@@ -801,3 +801,12 @@ productos = [
         "imagen_principal": "https://drive.google.com/uc?export=download&id=1yVyNx568rr_HtbpME2dM3Ps2A5wgA5j1"
     }
 ]
+
+db.producto.delete_many({})
+print("✔ Todos los productos eliminados, colección vacía.")
+
+for p in productos:
+    p["precio"] = float(p["precio"])
+
+result = db.producto.insert_many(productos)
+print("Registros insertados:", len(result.inserted_ids))
